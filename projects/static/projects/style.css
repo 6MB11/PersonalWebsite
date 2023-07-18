@@ -1,8 +1,26 @@
 .project-box {
-  width: 95%;
   background-color: lightcoral;
 }
 
+.project-image {
+  padding-left: 9%;
+  padding-right: 9%;
+}
+
 h1 {
-  color: red;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  padding-left: 9%;
+  padding-right: 9%;
+}
+
+h2 {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  padding-left: 9%;
+  padding-right: 9%;
+}
+
+p {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  padding-left: 9%;
+  padding-right: 9%;
 }
