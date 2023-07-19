@@ -1,26 +1,38 @@
 .project-box {
-  background-color: lightcoral;
+  background-image: radial-gradient(
+      circle at 5% 50%,
+      lightcoral 1%,
+      transparent 5%
+    ),
+    radial-gradient(circle at 95% 50%, lightcoral 1%, transparent 5%),
+    linear-gradient(
+      to right,
+      white 5%,
+      lightcoral 5%,
+      lightcoral 95%,
+      white 95%
+    );
 }
 
 .project-image {
-  padding-left: 9%;
-  padding-right: 9%;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 h1 {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  padding-left: 9%;
-  padding-right: 9%;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 h2 {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  padding-left: 9%;
-  padding-right: 9%;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 p {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  padding-left: 9%;
-  padding-right: 9%;
+  padding-left: 5%;
+  padding-right: 5%;
 }
