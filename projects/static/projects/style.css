@@ -1,17 +1,33 @@
-.project-box {
+.project-box-left {
+  float: left;
+  width: 5vw;
   background-image: radial-gradient(
-      circle at 5% 50%,
-      lightcoral 1%,
-      transparent 5%
-    ),
-    radial-gradient(circle at 95% 50%, lightcoral 1%, transparent 5%),
-    linear-gradient(
-      to right,
-      white 5%,
-      lightcoral 5%,
-      lightcoral 95%,
-      white 95%
-    );
+    circle at 5% 50%,
+    lightcoral 4%,
+    transparent 5%
+  );
+}
+
+.project-box-centre {
+  float: left;
+  width: 90vw;
+  background-image: (
+    to top,
+    transparent 0%,
+    lightcoral 20%,
+    lightcoral 80%,
+    transparent 100%
+  );
+}
+
+.project-box-right {
+  float: left;
+  width: 5vw;
+  background-image: radial-gradient(
+    circle at 95% 50%,
+    lightcoral 4%,
+    transparent 5%
+  );
 }
 
 .project-image {

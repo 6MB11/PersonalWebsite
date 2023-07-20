@@ -13,15 +13,21 @@
 
 <body>
   <h1>Marko Buha</h1>
-  <div class="project-box">
-    {% for project in projects %}
+
+  {% for project in projects %}
+  <div>
+    <div class="project-box-left"></div>
+    <div class="project-box centre"></div>
+    <div class="project-box-right"></div>
     <h2>{{project.title}}</h2>
     <div class="project-image">
       <img src="{{ project.image.url }}" height="50px" width="50px" />
     </div>
     {{project.text|safe}}
-    {% endfor %}
   </div>
+  </div>
+  {% endfor %}
+
   <!-- <script src="index.js"></script> -->
 </body>
 
