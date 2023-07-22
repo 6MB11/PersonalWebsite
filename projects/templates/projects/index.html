@@ -15,16 +15,15 @@
   <h1>Marko Buha</h1>
 
   {% for project in projects %}
-  <div>
-    <div class="project-box-left"></div>
-    <div class="project-box centre"></div>
-    <div class="project-box-right"></div>
-    <h2>{{project.title}}</h2>
-    <div class="project-image">
+  <div id="project-box">
+    <div id="project-box-left"></div>
+    <div id="project-box-centre">
+      <h2>{{project.title}}</h2>
       <img src="{{ project.image.url }}" height="50px" width="50px" />
+      {{project.text|safe}}
     </div>
-    {{project.text|safe}}
-  </div>
+    <div id="project-box-right"></div>
+
   </div>
   {% endfor %}
 

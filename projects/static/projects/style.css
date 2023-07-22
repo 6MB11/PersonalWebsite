@@ -1,38 +1,34 @@
-.project-box-left {
-  float: left;
-  width: 5vw;
-  background-image: radial-gradient(
-    circle at 5% 50%,
-    lightcoral 4%,
-    transparent 5%
-  );
+#project-box {
+  display: flex;
 }
 
-.project-box-centre {
-  float: left;
-  width: 90vw;
-  background-image: (
-    to top,
-    transparent 0%,
-    lightcoral 20%,
+#project-box-left {
+  flex-basis: 5%;
+  background-image: radial-gradient(
+    farthest-side at 100% 50%,
     lightcoral 80%,
     transparent 100%
   );
 }
 
-.project-box-right {
-  float: left;
-  width: 5vw;
-  background-image: radial-gradient(
-    circle at 95% 50%,
-    lightcoral 4%,
-    transparent 5%
+#project-box-centre {
+  flex-basis: 90%;
+  background-image: linear-gradient(
+    to top,
+    transparent 0%,
+    lightcoral 10%,
+    lightcoral 90%,
+    transparent 100%
   );
 }
 
-.project-image {
-  padding-left: 5%;
-  padding-right: 5%;
+#project-box-right {
+  flex-basis: 5%;
+  background-image: radial-gradient(
+    farthest-side at 0% 50%,
+    lightcoral 80%,
+    transparent 100%
+  );
 }
 
 h1 {
@@ -43,12 +39,8 @@ h1 {
 
 h2 {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  padding-left: 5%;
-  padding-right: 5%;
 }
 
 p {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  padding-left: 5%;
-  padding-right: 5%;
 }
