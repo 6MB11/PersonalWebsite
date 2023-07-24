@@ -1,5 +1,10 @@
 #project-box {
   display: flex;
+  transition: transform 400ms;
+}
+
+#project-box:hover {
+  transform: scaleY(1.04);
 }
 
 #project-box-left {
@@ -31,6 +36,17 @@
   );
 }
 
+#footer-box {
+  display: flex;
+  height: 200px;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+#footer-box-sub {
+  height: 100%;
+}
+
 h1 {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   padding-left: 5%;
@@ -43,4 +59,12 @@ h2 {
 
 p {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+html {
+  background-image: linear-gradient(
+    transparent 0%,
+    rgba(240, 128, 128, 0.5) 100%
+  );
 }
