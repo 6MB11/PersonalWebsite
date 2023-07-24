@@ -28,7 +28,11 @@
   {% endfor %}
 
   <div id="footer-box">
-    <div id="footer-box-sub"></div>
+    {% for external_site in external_sites %}
+    <a href="{{ external_site.url }}">
+      <div id="footer-box-sub"><img src="{{ project.image.url }}" /></div>
+    </a>
+    {% endfor %}
   </div>
 
   <!-- <script src="index.js"></script> -->

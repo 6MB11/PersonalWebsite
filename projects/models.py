@@ -16,7 +16,7 @@ class Project(models.Model):
         return self.title
 
 
-class ExternalSites(models.Model):
+class ExternalSite(models.Model):
     image = models.ImageField(upload_to="external_site")
     url = models.URLField()
     id = models.UUIDField(
