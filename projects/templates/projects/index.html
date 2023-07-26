@@ -23,15 +23,16 @@
       {{project.text|safe}}
     </div>
     <div id="project-box-right"></div>
-
   </div>
   {% endfor %}
 
   <div id="footer-box">
     {% for external_site in external_sites %}
-    <a href="{{ external_site.url }}">
-      <div id="footer-box-sub"><img src="{{ project.image.url }}" /></div>
-    </a>
+    <div id="footer-box-sub">
+      <a href="{{ external_site.url }}">
+        <img src="{{ external_site.image.url }}" height="50px" width="50px" />
+      </a>
+    </div>
     {% endfor %}
   </div>
 

@@ -38,13 +38,15 @@
 
 #footer-box {
   display: flex;
-  height: 200px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 50px;
   padding-left: 20%;
   padding-right: 20%;
 }
 
 #footer-box-sub {
-  height: 100%;
+  margin: 10px;
 }
 
 h1 {
