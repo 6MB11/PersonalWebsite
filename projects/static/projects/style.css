@@ -1,6 +1,6 @@
 #header-box {
   display: grid;
-  grid-template-rows: 5em auto;
+  grid-template-rows: min-content auto;
   grid-template-columns: auto 200px;
   height: 210px;
   padding-left: 5%;
