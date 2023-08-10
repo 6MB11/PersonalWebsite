@@ -1,7 +1,7 @@
 #header-box {
   display: grid;
   grid-template-rows: min-content auto;
-  grid-template-columns: auto 200px;
+  grid-template-columns: auto min(50%, 200px);
   height: 210px;
   padding-left: 5%;
   padding-right: 5%;
@@ -20,13 +20,12 @@
   grid-column: 1;
 }
 
-#header-box-image:not(.min-content) {
+#header-box-image {
   margin-bottom: 10px;
   grid-row: 1 / 2;
   grid-column: 2;
   /* https://stackoverflow.com/a/75072438/17764200 */
-  contain: "size";
-  overflow: "scroll";
+  contain: size;
 }
 
 #project-box {
@@ -90,6 +89,12 @@ h2 {
 
 p {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
 }
 
 html {
