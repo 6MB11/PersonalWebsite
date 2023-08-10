@@ -20,7 +20,7 @@
   grid-column: 1;
 }
 
-#header-box-image {
+#header-box-image:not(.min-content) {
   margin-bottom: 10px;
   grid-row: 1 / 2;
   grid-column: 2;
