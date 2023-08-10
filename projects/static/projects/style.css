@@ -24,6 +24,9 @@
   margin-bottom: 10px;
   grid-row: 1 / 2;
   grid-column: 2;
+  /* https://stackoverflow.com/a/75072438/17764200 */
+  contain: "size";
+  overflow: "scroll";
 }
 
 #project-box {
