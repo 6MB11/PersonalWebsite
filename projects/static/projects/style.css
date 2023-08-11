@@ -1,31 +1,24 @@
 #header-box {
-  display: grid;
-  grid-template-rows: min-content auto;
-  grid-template-columns: auto min(50%, 200px);
-  height: 210px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   padding-left: 5%;
   padding-right: 5%;
+  padding-bottom: 10px;
 }
 
-#header-box-title {
-  margin-right: 10px;
-  grid-row: 1;
-  grid-column: 1;
-}
-
-#header-box-subtitle {
-  margin-right: 10px;
-  margin-bottom: 10px;
-  grid-row: 2;
-  grid-column: 1;
+#header-box-text {
+  flex-basis: 320px;
 }
 
 #header-box-image {
-  margin-bottom: 10px;
-  grid-row: 1 / 2;
-  grid-column: 2;
-  /* https://stackoverflow.com/a/75072438/17764200 */
-  contain: size;
+  display: flex;
+  align-items: center;
+  flex-basis: 200px;
+}
+
+#header-box-resume {
+  flex-basis: 320px;
 }
 
 #project-box {
@@ -92,9 +85,8 @@ p {
 }
 
 img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1 / 1;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 html {
