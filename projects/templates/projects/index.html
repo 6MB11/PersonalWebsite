@@ -12,6 +12,7 @@
 </head>
 
 <body>
+
   <div id="header-box">
     <div id="header-box-text">
       <h1>Marko Buha</h1>
@@ -26,7 +27,8 @@
   </div>
 
   {% for project in projects %}
-  <div id="project-box">
+  <div id="project-box" onclick="on()">
+    <div id="project-box-overlay">{{project.text|safe}}</div>
     <div id="project-box-left"></div>
     <div id="project-box-centre">
       <h2>{{project.title}}</h2>
@@ -47,7 +49,7 @@
     {% endfor %}
   </div>
 
-  <!-- <script src="{% static 'index.js' %}"></script> -->
+  <script src="{% static 'projects/main.js' %}"></script>
 </body>
 
 </html>
