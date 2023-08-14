@@ -27,50 +27,13 @@
   </div>
 
   {% for project in projects %}
-
-  <button class="project-button" onclick="on(event)" id="{{project.id}}">
-    <span class="project-box">
-      <span class="project-box-left"></span>
-      <span class="project-box-centre">
-        <span class="project-title">
-          <h2>{{project.title}}</h2>
-        </span>
-        <span class="project-image">
-          <img src="{{ project.image.url }}" height="50px" width="50px" alt="Planets">
-        </span>
-        <span class="project-text">
-          {{project.text|safe}}
-        </span>
-      </span>
-      <span class="project-box-right"></span>
-    </span>
-  </button>
-
-
-  <aside class="background-overlay" onclick="off(event)" id="{{project.id}}">
-    <div class="project-box project-box-overlay">
-      <div class="project-box-left"></div>
-      <div class="project-box-centre">
-        <!-- A grid could've made more sense but ran into https://stackoverflow.com/q/74935509/17764200 and haven't been able to fix it yet -->
-        <div class="top-row">
-          <div class="project-title">
-            <h2>{{project.title}}</h2>
-          </div>
-          <div class="exit-button">
-            <button onclick="off(event)" id="{{project.id}}">&#x2716;</button>
-          </div>
-        </div>
-        {% for tab in project.tab_set.all %}
-        Hello
-        {% endfor %}
-        <div class="project-image">
-          <img src="{{ project.image.url }}" height="50px" width="50px" alt="Planets">
-        </div>
-        <div class="project-text">
-          {{project.text|safe}}
-        </div>
-      </div>
-      <div class="project-box-right"></div>
+  <div id="project-box-overlay" onclick="off()">{{project.text|safe}}</div>
+  <div id="project-box" onclick="on()">
+    <div id="project-box-left"></div>
+    <div id="project-box-centre">
+      <h2>{{project.title}}</h2>
+      <img src="{{ project.image.url }}" height="50px" width="50px" />
+      {{project.text|safe}}
     </div>
   </aside>
   {% endfor %}
