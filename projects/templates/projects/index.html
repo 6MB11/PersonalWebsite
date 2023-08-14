@@ -26,7 +26,8 @@
   </div>
 
   {% for project in projects %}
-  <div id="project-box">
+  <div id="project-box-overlay" onclick="off()">{{project.text|safe}}</div>
+  <div id="project-box" onclick="on()">
     <div id="project-box-left"></div>
     <div id="project-box-centre">
       <h2>{{project.title}}</h2>
