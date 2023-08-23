@@ -1,13 +1,14 @@
 from django.db import models
-from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 
 
 class Project(models.Model):
     title = models.CharField(max_length=50)
+    summary = models.CharField(max_length=250)
     image = models.ImageField(upload_to="projects")
-    text = RichTextField()
+    text = RichTextUploadingField()
     order = models.SmallIntegerField(default=0)
 
     def __str__(self):
@@ -20,15 +21,15 @@ class Project(models.Model):
 class Tab(models.Model):
     owner = models.ForeignKey(
         Project, on_delete=models.CASCADE)
-    name = models.CharField(max_length=50)
-    text = RichTextField()
+    title = models.CharField(max_length=50)
+    text = RichTextUploadingField()
 
     def __str__(self):
         pk = str(self.pk)
         return pk
 
     class Meta:
-        ordering = ['owner', 'name']
+        ordering = ['owner', 'title']
 
 
 class ExternalSite(models.Model):
