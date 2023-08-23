@@ -1,3 +1,5 @@
+function on() {
+  document.getElementById("background-overlay").style.display = "block";
 function on(e) {
   var element = overlayIterator(e);
   element.style.display = "block";
@@ -11,6 +13,8 @@ function off(e) {
   document.body.style.overflow = "auto";
 }
 
+function off() {
+  document.getElementById("background-overlay").style.display = "none";
 function overlayIterator(e) {
   var overlays = document.getElementsByClassName("background-overlay");
   for (var i = 0; i < overlays.length; i++) {
