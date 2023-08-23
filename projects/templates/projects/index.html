@@ -6,9 +6,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Marko Buha</title>
-  <!-- <link rel="stylesheet" href="{% static 'projects/style.css' %}">
-  <link rel="stylesheet" href="https://cdn.skypack.dev/sanitize.css"> -->
+  <title>Marko's Website</title>
+  <link rel="stylesheet" href="{% static 'projects/style.css' %}">
+  <link rel="stylesheet" href="{% static 'personal_site/normalize.css' %}">
   <link rel="shortcut icon" type="image/png" href="{% static 'personal_site/personal_site.jpg' %}">
 </head>
 
@@ -19,7 +19,7 @@
       <p>Hello World!</p>
     </div>
     <div id="header-box-image">
-      <img src="{% static 'personal_site/personal_site.jpg' %}" />
+      <img src="{% static 'personal_site/personal_site.jpg' %}" alt="Self-portrait" />
     </div>
     <div id="header-box-resume">
       <h1>LINK</h1>
@@ -29,29 +29,31 @@
   {% for project in projects %}
 
   <button id="project-button" onclick="on()">
-    <div class="project-box">
-      <div id="project-box-left"></div>
-      <div id="project-box-centre">
+    <span class="project-box">
+      <span id="project-box-left"></span>
+      <span id="project-box-centre">
         <h2>{{project.title}}</h2>
-        <img src="{{ project.image.url }}" height="50px" width="50px" />
+        <img src="{{ project.image.url }}" height="50px" width="50px" alt="Planets" />
         {{project.text|safe}}
-      </div>
-      <div id="project-box-right"></div>
-    </div>
+      </span>
+      <span id="project-box-right"></span>
+    </span>
   </button>
 
-  <button onclick="off()" style="display:none;">
-    <div id="background-overlay">
-      <div class="project-box project-box-overlay">
-        <div id="project-box-left"></div>
-        <div id="project-box-centre">
-          <h2>{{project.title}}</h2>
-          <img src="{{ project.image.url }}" height="50px" width="50px" />
-          {{project.text|safe}}
-        </div>
-        <div id="project-box-right"></div>
-      </div>
-    </div>
+
+  <span id="background-overlay">
+    <span class="project-box project-box-overlay">
+      <span id="project-box-left"></span>
+      <span id="project-box-centre">
+        <h2>{{project.title}}</h2>
+        <span id="exit-button"><button onclick="off()">X</button></span>
+        <img src="{{ project.image.url }}" height="50px" width="50px" />
+        {{project.text|safe}}
+      </span>
+
+      <span id="project-box-right"></span>
+    </span>
+  </span>
   </button>
   {% endfor %}
 
@@ -65,7 +67,7 @@
     {% endfor %}
   </div>
 
-  <!-- <script src="{% static 'projects/main.js' %}"></script> -->
+  <script src="{% static 'projects/main.js' %}"></script>
 
 </body>
 
