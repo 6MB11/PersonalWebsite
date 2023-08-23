@@ -35,6 +35,7 @@
 }
 
 #project-box-centre {
+  display: flex;
   flex-basis: 90%;
   background-image: linear-gradient(
     to top,
@@ -103,21 +104,22 @@ button {
   transition: transform 400ms;
 }
 
+#exit-button {
+  flex-basis: 50px;
+  right: 0;
+}
+
 h1 {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 h2 {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  width: auto;
+  flex-basis: 200px;
 }
 
 p {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-}
-
-text {
-  cursor: text;
 }
 
 img {
