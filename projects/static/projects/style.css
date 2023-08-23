@@ -21,6 +21,15 @@
   flex-basis: 320px;
 }
 
+.project-button {
+  width: 100%;
+}
+
+.project-button:hover {
+  transform: scaleY(1.04);
+  transition: transform 400ms;
+}
+
 .project-box {
   display: flex;
 }
@@ -34,8 +43,9 @@
   );
 }
 
-#project-box-centre {
+.project-box-centre {
   display: flex;
+  flex-direction: column;
   flex-basis: 90%;
   background-image: linear-gradient(
     to top,
@@ -50,6 +60,14 @@
   flex-grow: 1;
 }
 
+.project-image {
+  height: 50px;
+}
+
+.tab-text {
+  display: none;
+}
+
 .project-box-right {
   flex-basis: 5%;
   background-image: radial-gradient(
@@ -60,7 +78,7 @@
 }
 
 /* https://www.w3schools.com/howto/howto_css_overlay.asp */
-#background-overlay {
+.background-overlay {
   position: fixed; /* Sit on top of the page content */
   display: none; /* Hidden by default */
   width: 100%; /* Full width (cover the whole page) */
@@ -71,13 +89,25 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
   z-index: 0; /* Specify a stack order in case you're using a different order for other elements */
-  cursor: pointer; /* Add a pointer on hover */
+  cursor: default; /* Add a pointer on hover */
+  overflow-y: auto;
 }
 
 .project-box-overlay {
-  padding-top: 200px;
-  padding-left: 10%;
-  padding-right: 10%;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+  cursor: auto;
+}
+
+.top-row {
+  display: flex;
+}
+
+.exit-button {
+  flex-basis: min-content;
+  padding-top: 1.245em; /* 0.83 * 1.5 */
 }
 
 #footer-box {
@@ -103,23 +133,12 @@ button {
   outline: inherit;
 }
 
-#project-button:hover {
-  transform: scaleY(1.04);
-  transition: transform 400ms;
-}
-
-#exit-button {
-  flex-basis: 50px;
-  right: 0;
-}
-
 h1 {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 h2 {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  flex-basis: 200px;
 }
 
 p {
