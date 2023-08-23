@@ -7,7 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Marko Buha</title>
-  <link rel="stylesheet" href="{% static 'projects/style.css' %}">
+  <!-- <link rel="stylesheet" href="{% static 'projects/style.css' %}">
+  <link rel="stylesheet" href="https://cdn.skypack.dev/sanitize.css"> -->
   <link rel="shortcut icon" type="image/png" href="{% static 'personal_site/personal_site.jpg' %}">
 </head>
 
@@ -27,16 +28,32 @@
   </div>
 
   {% for project in projects %}
-  <div id="project-box-overlay" onclick="off()">{{project.text|safe}}</div>
-  <div id="project-box" onclick="on()">
-    <div id="project-box-left"></div>
-    <div id="project-box-centre">
-      <h2>{{project.title}}</h2>
-      <img src="{{ project.image.url }}" height="50px" width="50px" />
-      {{project.text|safe}}
+
+  <button id="project-button" onclick="on()">
+    <div class="project-box">
+      <div id="project-box-left"></div>
+      <div id="project-box-centre">
+        <h2>{{project.title}}</h2>
+        <img src="{{ project.image.url }}" height="50px" width="50px" />
+        {{project.text|safe}}
+      </div>
+      <div id="project-box-right"></div>
     </div>
-    <div id="project-box-right"></div>
-  </div>
+  </button>
+
+  <button onclick="off()" style="display:none;">
+    <div id="background-overlay">
+      <div class="project-box project-box-overlay">
+        <div id="project-box-left"></div>
+        <div id="project-box-centre">
+          <h2>{{project.title}}</h2>
+          <img src="{{ project.image.url }}" height="50px" width="50px" />
+          {{project.text|safe}}
+        </div>
+        <div id="project-box-right"></div>
+      </div>
+    </div>
+  </button>
   {% endfor %}
 
   <div id="footer-box">
@@ -49,8 +66,7 @@
     {% endfor %}
   </div>
 
-  <link href="https://cdn.skypack.dev/sanitize.css" rel="stylesheet" />
-  <script src="{% static 'projects/main.js' %}"></script>
+  <!-- <script src="{% static 'projects/main.js' %}"></script> -->
 
 </body>
 

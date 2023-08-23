@@ -1,7 +1,7 @@
 function on() {
-  document.getElementById("project-box-overlay").style.display = "block";
+  document.getElementById("background-overlay").style.display = "block";
 }
 
 function off() {
-  document.getElementById("project-box-overlay").style.display = "none";
+  document.getElementById("background-overlay").style.display = "none";
 }
