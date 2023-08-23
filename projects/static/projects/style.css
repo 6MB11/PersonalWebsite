@@ -21,14 +21,8 @@
   flex-basis: 320px;
 }
 
-#project-box {
+.project-box {
   display: flex;
-  transition: transform 400ms;
-}
-
-#project-box:hover {
-  transform: scaleY(1.04);
-  cursor: pointer; /* Add a pointer on hover */
 }
 
 #project-box-left {
@@ -61,7 +55,7 @@
 }
 
 /* https://www.w3schools.com/howto/howto_css_overlay.asp */
-#project-box-overlay {
+#background-overlay {
   position: fixed; /* Sit on top of the page content */
   display: none; /* Hidden by default */
   width: 100%; /* Full width (cover the whole page) */
@@ -70,14 +64,15 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(
-    240,
-    128,
-    128,
-    0.9
-  ); /* Black background with opacity */
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
   z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
   cursor: pointer; /* Add a pointer on hover */
+}
+
+.project-box-overlay {
+  padding-top: 200px;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 #footer-box {
@@ -91,6 +86,25 @@
 
 #footer-box-sub {
   margin: 10px;
+}
+
+button {
+  background: none;
+  color: inherit;
+  border: inherit;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+.no-js button {
+  cursor: crosshair;
+}
+
+#project-button:hover {
+  transform: scaleY(1.04);
+  transition: transform 400ms;
 }
 
 h1 {
