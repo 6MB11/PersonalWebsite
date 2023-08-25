@@ -37,6 +37,7 @@
 #project-box-centre {
   display: flex;
   flex-basis: 90%;
+  flex-wrap: wrap;
   background-image: linear-gradient(
     to top,
     transparent 0%,
@@ -115,7 +116,7 @@ h1 {
 
 h2 {
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  flex-basis: 200px;
+  flex-basis: auto;
 }
 
 p {
