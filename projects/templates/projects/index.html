@@ -29,32 +29,48 @@
 
   {% for project in projects %}
 
-  <button id="project-button" onclick="on()">
+  <button class="project-button" onclick="on()">
     <span class="project-box">
-      <span id="project-box-left"></span>
-      <span id="project-box-centre">
-        <h2>{{project.title}}</h2>
-        <img src="{{ project.image.url }}" height="50px" width="50px" alt="Planets" />
-        {{project.text|safe}}
+      <span class="project-box-left"></span>
+      <span class="project-box-centre">
+        <span class="project-title">
+          <h2>{{project.title}}</h2>
+        </span>
+        <span class="project-image">
+          <img src="{{ project.image.url }}" height="50px" width="50px" alt="Planets">
+        </span>
+        <span class="project-text">
+          {{project.text|safe}}
+        </span>
       </span>
-      <span id="project-box-right"></span>
+      <span class="project-box-right"></span>
     </span>
   </button>
 
 
-  <span id="background-overlay">
+  <div class="background-overlay">
     <span class="project-box project-box-overlay">
-      <span id="project-box-left"></span>
-      <span id="project-box-centre">
-        <h2>{{project.title}}</h2>
-        <span id="exit-button"><button onclick="off()">X</button></span>
-        <img src="{{ project.image.url }}" height="50px" width="50px" />
-        {{project.text|safe}}
+      <span class="project-box-left"></span>
+      <span class="project-box-centre">
+        <!-- A grid could've made more sense but ran into https://stackoverflow.com/q/74935509/17764200 and couldn't fix it -->
+        <span class="top-row">
+          <span class="project-title">
+            <h2>{{project.title}}</h2>
+          </span>
+          <span class="exit-button">
+            <button onclick="off()">X</button>
+          </span>
+        </span>
+        <span class="project-image">
+          <img src="{{ project.image.url }}" height="50px" width="50px" alt="Planets">
+        </span>
+        <span class="project-text">
+          {{project.text|safe}}
+        </span>
       </span>
-
-      <span id="project-box-right"></span>
+      <span class="project-box-right"></span>
     </span>
-  </span>
+  </div>
   </button>
   {% endfor %}
 
