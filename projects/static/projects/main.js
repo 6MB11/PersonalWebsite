@@ -1,7 +1,9 @@
 function on() {
-  document.getElementById("background-overlay").style.display = "block";
+  document.getElementsByClassName("background-overlay")[0].style.display =
+    "inline";
 }
 
 function off() {
-  document.getElementById("background-overlay").style.display = "none";
+  document.getElementsByClassName("background-overlay")[0].style.display =
+    "none";
 }
