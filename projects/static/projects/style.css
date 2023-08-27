@@ -75,13 +75,13 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
   z-index: 0; /* Specify a stack order in case you're using a different order for other elements */
-  cursor: pointer; /* BUSTED PROBABLY BECAUSE OVERLAY IS OVERSIZED */ /* Add a pointer on hover */
+  cursor: pointer; /* Add a pointer on hover */
 }
 
 .project-box-overlay {
-  padding-top: 200px;
-  padding-left: 10%;
-  padding-right: 10%;
+  top: 200px;
+  left: 10%;
+  right: 10%;
   cursor: auto;
 }
 
