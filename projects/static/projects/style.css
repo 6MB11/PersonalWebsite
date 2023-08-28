@@ -75,11 +75,12 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
   z-index: 0; /* Specify a stack order in case you're using a different order for other elements */
-  cursor: pointer; /* Add a pointer on hover */
+  cursor: default; /* BUSTED PROBABLY BECAUSE OVERLAY IS OVERSIZED */ /* Add a pointer on hover */
 }
 
 .project-box-overlay {
-  top: 200px;
+  position: absolute;
+  top: 20%;
   left: 10%;
   right: 10%;
   cursor: auto;
@@ -134,7 +135,7 @@ img {
   max-height: 100%;
 }
 
-html {
+body {
   background-image: linear-gradient(
     transparent 0%,
     rgba(240, 128, 128, 0.5) 100%
