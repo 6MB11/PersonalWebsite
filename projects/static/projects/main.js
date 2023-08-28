@@ -3,8 +3,8 @@ function on() {
     "inline";
 }
 
-function off() {
-  if ( event.target.id === ('background-overlay' or 'exit-button'))
+function off(e) {
+  if (e.target !== e.currentTarget) return;
   document.getElementsByClassName("background-overlay")[0].style.display =
     "none";
 }

@@ -47,7 +47,7 @@
   </button>
 
 
-  <div class="background-overlay">
+  <aside class="background-overlay" onclick="off(event)">
     <span class="project-box project-box-overlay">
       <span class="project-box-left"></span>
       <span class="project-box-centre">
@@ -57,7 +57,7 @@
             <h2>{{project.title}}</h2>
           </span>
           <span class="exit-button">
-            <button onclick="off()">&#x2716;</button>
+            <button onclick="off(event)">&#x2716;</button>
           </span>
         </span>
         <span class="project-image">
@@ -69,8 +69,7 @@
       </span>
       <span class="project-box-right"></span>
     </span>
-  </div>
-  </button>
+  </aside>
   {% endfor %}
 
   <div id="footer-box">
