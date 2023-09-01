@@ -10,8 +10,6 @@ class Project(models.Model):
     image = models.ImageField(upload_to="projects")
     text = RichTextField()
     order = models.SmallIntegerField(default=0)
-    id = models.UUIDField(
-        default=uuid.uuid4, unique=True, primary_key=True, editable=False)
 
     def __str__(self):
         return self.title
@@ -20,12 +18,23 @@ class Project(models.Model):
         ordering = ['order']
 
 
+class Tab(models.Model):
+    owner = models.ForeignKey(
+        Project, on_delete=models.CASCADE)
+    name = models.CharField(max_length=50)
+    text = RichTextField()
+
+    def __str__(self):
+        return self.pk
+
+    class Meta:
+        ordering = ['owner', 'name']
+
+
 class ExternalSite(models.Model):
     image = models.ImageField(upload_to="external_sites")
     url = models.URLField()
     order = models.SmallIntegerField(default=0)
-    id = models.UUIDField(
-        default=uuid.uuid4, unique=True, primary_key=True, editable=False)
 
     def __str__(self):
         return self.url
