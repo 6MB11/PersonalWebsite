@@ -48,28 +48,29 @@
 
 
   <aside class="background-overlay" onclick="off(event)" id="{{project.id}}">
-    <div class="screen"> <!-- Dummy class to set max height for scroll bar -->
-      <div class="project-box project-box-overlay">
-        <div class="project-box-left"></div>
-        <div class="project-box-centre">
-          <!-- A grid could've made more sense but ran into https://stackoverflow.com/q/74935509/17764200 and haven't been able to fix it yet -->
-          <div class="top-row">
-            <div class="project-title">
-              <h2>{{project.title}}</h2>
-            </div>
-            <div class="exit-button">
-              <button onclick="off(event)" id="{{project.id}}">&#x2716;</button>
-            </div>
+    <div class="project-box project-box-overlay">
+      <div class="project-box-left"></div>
+      <div class="project-box-centre">
+        <!-- A grid could've made more sense but ran into https://stackoverflow.com/q/74935509/17764200 and haven't been able to fix it yet -->
+        <div class="top-row">
+          <div class="project-title">
+            <h2>{{project.title}}</h2>
           </div>
-          <div class="project-image">
-            <img src="{{ project.image.url }}" height="50px" width="50px" alt="Planets">
-          </div>
-          <div class="project-text">
-            {{project.text|safe}}
+          <div class="exit-button">
+            <button onclick="off(event)" id="{{project.id}}">&#x2716;</button>
           </div>
         </div>
-        <div class="project-box-right"></div>
+        {% for tab in project.tab_set.all %}
+        Hello
+        {% endfor %}
+        <div class="project-image">
+          <img src="{{ project.image.url }}" height="50px" width="50px" alt="Planets">
+        </div>
+        <div class="project-text">
+          {{project.text|safe}}
+        </div>
       </div>
+      <div class="project-box-right"></div>
     </div>
   </aside>
   {% endfor %}
