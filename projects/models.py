@@ -1,6 +1,5 @@
 from django.db import models
 from ckeditor.fields import RichTextField
-import uuid
 
 # Create your models here.
 
@@ -25,7 +24,8 @@ class Tab(models.Model):
     text = RichTextField()
 
     def __str__(self):
-        return self.pk
+        pk = str(self.pk)
+        return pk
 
     class Meta:
         ordering = ['owner', 'name']
