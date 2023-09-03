@@ -29,7 +29,7 @@
 
   {% for project in projects %}
 
-  <button class="project-button" onclick="on(event)" id="{{project.id}}">
+  <button type="button" class="project-button" onclick="on(event)" id="{{project.id}}">
     <span class="project-box">
       <span class="project-box-left"></span>
       <span class="project-box-centre">
@@ -58,21 +58,26 @@
             <h2>{{project.title}}</h2>
           </div>
           <div class="exit-button">
-            <button onclick="off(event)" id="{{project.id}}">&#x2716;</button>
+            <button type="button" onclick="off(event)" id="{{project.id}}">&#x2716;</button>
           </div>
         </div>
-        {% for tab in project.tab_set.all %}
-        Hello
-        {% endfor %}
         <div class="project-image">
           <img src="{{ project.image.url }}" height="50px" width="50px" alt="Planets">
         </div>
+
+        {% for tab in project.tab_set.all %}
+        <button type="button" class="tab" id="{{button.id}}" onclick="onTab(event)">{{tab.title}}</button>
+        <aside class="tab-text">
+          {{tab.text}}
+        </aside>
+        {% endfor %}
+
         <div class="project-text">
           {{project.text|safe}}
         </div>
+        </button>
+        <div class="project-box-right"></div>
       </div>
-      <div class="project-box-right"></div>
-    </div>
   </aside>
   {% endfor %}
 
