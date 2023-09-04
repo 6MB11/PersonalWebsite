@@ -68,7 +68,7 @@
         {% for tab in project.tab_set.all %}
         <button type="button" class="tab" id="{{button.id}}" onclick="onTab(event)">{{tab.title}}</button>
         <aside class="tab-text">
-          {{tab.text}}
+          {{tab.text|safe}}
         </aside>
         {% endfor %}
 

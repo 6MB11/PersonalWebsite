@@ -20,7 +20,7 @@ class Project(models.Model):
 class Tab(models.Model):
     owner = models.ForeignKey(
         Project, on_delete=models.CASCADE)
-    name = models.CharField(max_length=50)
+    title = models.CharField(max_length=50)
     text = RichTextField()
 
     def __str__(self):
@@ -28,7 +28,7 @@ class Tab(models.Model):
         return pk
 
     class Meta:
-        ordering = ['owner', 'name']
+        ordering = ['owner', 'title']
 
 
 class ExternalSite(models.Model):
