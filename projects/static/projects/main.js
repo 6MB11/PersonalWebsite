@@ -1,3 +1,13 @@
+function OnTab() {
+    this.on_tab = None;
+}
+
+OnTab.prototype.set = function(e) {
+    return e.currentTarget.id;
+};
+
+var counter = new Counter();
+
 function on(e) {
   var element = overlayIterator(e);
   element.style.display = "block";
@@ -19,3 +29,10 @@ function overlayIterator(e) {
     }
   }
 }
+
+function tab(e) {
+  on_tab.style.display = "none";
+  OnTab.set(e);
+  var element = document.getElementByID(e.currentTarget.id);
+  element.style.display = block
+
