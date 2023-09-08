@@ -6,7 +6,7 @@ OnTab.prototype.set = function(e) {
     return e.currentTarget.id;
 };
 
-var counter = new Counter();
+var on_tab = new OnTab();
 
 function on(e) {
   var element = overlayIterator(e);
@@ -34,5 +34,5 @@ function tab(e) {
   on_tab.style.display = "none";
   OnTab.set(e);
   var element = document.getElementByID(e.currentTarget.id);
-  element.style.display = block
+  element.style.display = block;
 
