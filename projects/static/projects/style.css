@@ -54,6 +54,10 @@
   flex-grow: 1;
 }
 
+.tab-text {
+  display: none;
+}
+
 .project-box-right {
   flex-basis: 5%;
   background-image: radial-gradient(

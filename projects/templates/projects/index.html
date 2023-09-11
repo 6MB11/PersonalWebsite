@@ -29,7 +29,7 @@
 
   {% for project in projects %}
 
-  <button type="button" class="project-button" onclick="on(event)" id="{{project.id}}">
+  <button type="button" class="project-button" id="{{project.id}}" onclick="on(event)">
     <span class="project-box">
       <span class="project-box-left"></span>
       <span class="project-box-centre">
@@ -48,7 +48,7 @@
   </button>
 
 
-  <aside class="background-overlay" onclick="off(event)" id="{{project.id}}">
+  <aside class="background-overlay" id="{{project.id}}" onclick="off(event)">
     <div class="project-box project-box-overlay">
       <div class="project-box-left"></div>
       <div class="project-box-centre">
@@ -58,7 +58,7 @@
             <h2>{{project.title}}</h2>
           </div>
           <div class="exit-button">
-            <button type="button" onclick="off(event)" id="{{project.id}}">&#x2716;</button>
+            <button type="button" id="{{project.id}}" onclick="off(event)">&#x2716;</button>
           </div>
         </div>
         <div class="project-image">
@@ -66,8 +66,8 @@
         </div>
 
         {% for tab in project.tab_set.all %}
-        <button type="button" class="tab" id="{{button.id}}" onclick="onTab(event)">{{tab.title}}</button>
-        <aside class="tab-text">
+        <button type="button" id="{{tab.id}}" onclick="onTab(event)">{{tab.title}}</button>
+        <aside class="tab-text" id="{{tab.id}}">
           {{tab.text|safe}}
         </aside>
         {% endfor %}
