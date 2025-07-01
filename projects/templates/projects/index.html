@@ -27,61 +27,66 @@
     </div>
   </div>
 
-  {% for project in projects %}
+  <div id="projects">
 
-  <button type="button" class="project-button" id="{{project.title}}" onclick="on(event)">
-    <span class="project-box">
-      <span class="project-box-left"></span>
-      <span class="project-box-centre">
-        <span class="project-title">
-          <h2>{{project.title}}</h2>
-        </span>
-        <span class="project-image">
-          <img src="{{ project.image.url }}" height="50px" width="50px" alt="Planets">
-        </span>
-        <span class="project-text">
-          {{project.summary}}
-          </p>
-        </span>
-      </span>
-      <span class="project-box-right"></span>
-    </span>
-  </button>
+      {% for project in projects %}
+
+      <button type="button" class="project-button" id="{{project.title}}" onclick="on(event)">
+          <span class="project-box">
+              <span class="project-box-left"></span>
+              <span class="project-box-centre">
+                  <span class="project-title">
+                      <h2>{{project.title}}</h2>
+                  </span>
+                  <span class="project-image">
+                      <img src="{{ project.image.url }}" height="50px" width="50px" alt="Planets">
+                  </span>
+                  <span class="project-text">
+                      {{project.summary}}
+                      </p>
+                  </span>
+              </span>
+              <span class="project-box-right"></span>
+          </span>
+      </button>
 
 
-  <aside class="background-overlay" id="{{project.title}}" onclick="off(event)">
-    <div class="project-box project-box-overlay">
-      <div class="project-box-left"></div>
-      <div class="project-box-centre">
-        <!-- A grid could've made more sense but ran into https://stackoverflow.com/q/74935509/17764200 and haven't been able to fix it yet -->
-        <div class="top-row">
-          <div class="project-title">
-            <h2>{{project.title}}</h2>
+      <aside class="background-overlay" id="{{project.title}}" onclick="off(event)">
+          <div class="project-box project-box-overlay">
+              <div class="project-box-left"></div>
+              <div class="project-box-centre">
+                  <!-- A grid could've made more sense but ran into https://stackoverflow.com/q/74935509/17764200 and haven't been able to fix it yet -->
+                  <div class="top-row">
+                      <div class="project-title">
+                          <h2>{{project.title}}</h2>
+                      </div>
+                      <div class="exit-button">
+                          <button type="button" id="{{project.title}}" onclick="off(event)">&#x2716;</button>
+                      </div>
+                  </div>
+                  <div class="project-image">
+                      <img src="{{ project.image.url }}" height="50px" width="50px" alt="Planets">
+                  </div>
+
+                  {% for tab in project.tab_set.all %}
+                  <button type="button" id="{{tab.id}}" onclick="onTab(event)">{{tab.title}}</button>
+                  <aside class="tab-text" id="{{tab.id}}">
+                      {{tab.text|safe}}
+                  </aside>
+                  {% endfor %}
+
+                  <div class="project-text">
+                      {{project.text|safe}}
+                  </div>
+                  </button>
+              </div>
+              <div class="project-box-right"></div>
           </div>
-          <div class="exit-button">
-            <button type="button" id="{{project.title}}" onclick="off(event)">&#x2716;</button>
-          </div>
-        </div>
-        <div class="project-image">
-          <img src="{{ project.image.url }}" height="50px" width="50px" alt="Planets">
-        </div>
+      </aside>
 
-        {% for tab in project.tab_set.all %}
-        <button type="button" id="{{tab.id}}" onclick="onTab(event)">{{tab.title}}</button>
-        <aside class="tab-text" id="{{tab.id}}">
-          {{tab.text|safe}}
-        </aside>
-        {% endfor %}
+      {% endfor %}
 
-        <div class="project-text">
-          {{project.text|safe}}
-        </div>
-        </button>
-      </div>
-      <div class="project-box-right"></div>
-    </div>
-  </aside>
-  {% endfor %}
+  </div>
 
   <div id="footer-box">
     {% for external_site in external_sites %}
