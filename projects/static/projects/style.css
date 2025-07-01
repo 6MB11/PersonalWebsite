@@ -31,12 +31,16 @@
 
 .project-button {
 	flex-basis: 600px;
+	padding-left: 1%;
+	padding-right: 1%;
+	padding-top: 1%;
+	padding-bottom: 1%;
 }
 
-	.project-button:hover {
-		transform: scaleY(1.04);
-		transition: transform 400ms;
-	}
+.project-button:hover {
+	transform: scaleY(1.04);
+	transition: transform 400ms;
+}
 
 .project-box {
 	display: flex;
@@ -44,14 +48,14 @@
 
 .project-box-left {
 	flex-basis: 5%;
-	background-image: radial-gradient( farthest-side at 100% 50%, lightcoral 80%, transparent 100% );
+	background-image: radial-gradient( farthest-side at 100% 50%, lightcoral 100%, transparent 100% );
 }
 
 .project-box-centre {
 	display: flex;
 	flex-direction: column;
 	flex-basis: 90%;
-	background-image: linear-gradient( to top, transparent 0%, lightcoral 10%, lightcoral 90%, transparent 100% );
+	background-color: lightcoral;
 }
 
 .project-title {
@@ -68,7 +72,7 @@
 
 .project-box-right {
 	flex-basis: 5%;
-	background-image: radial-gradient( farthest-side at 0% 50%, lightcoral 80%, transparent 100% );
+	background-image: radial-gradient( farthest-side at 0% 50%, lightcoral 100%, transparent 100% );
 }
 
 /* https://www.w3schools.com/howto/howto_css_overlay.asp */
@@ -82,10 +86,9 @@
 	right: 0;
 	bottom: 0;
 	background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
-	z-index: 0; /* Specify a stack order in case you're using a different order for other elements */
 	cursor: default; /* Add a pointer on hover */
 	overflow-y: auto;
-	color-scheme: light_dark;
+	color-scheme: auto;
 }
 
 .project-box-overlay {
@@ -147,11 +150,11 @@ img {
 }
 
 body {
-	width: 100vw;
 	background-image: linear-gradient( transparent 0%, rgba(240, 128, 128, 0.5) 100% );
 	min-height: 100vh;
+	width: calc(100vw - 15px); /* 15 px is approximate scrollbar width */
 }
 
 html {
-	overflow-x: hidden;
+	color-scheme: light;
 }
