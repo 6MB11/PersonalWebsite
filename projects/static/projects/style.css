@@ -30,6 +30,7 @@
 }
 
 .project-button {
+	display: flex;
 	flex-basis: 600px;
 	padding-left: 1%;
 	padding-right: 1%;
@@ -40,10 +41,6 @@
 .project-button:hover {
 	transform: scaleY(1.04);
 	transition: transform 400ms;
-}
-
-.project-box {
-	display: flex;
 }
 
 .project-box-left {
@@ -73,6 +70,23 @@
 .project-box-right {
 	flex-basis: 5%;
 	background-image: radial-gradient( farthest-side at 0% 50%, lightcoral 100%, transparent 100% );
+}
+
+.tab-box-left {
+	flex-basis: 5%;
+	background-image: radial-gradient( farthest-side at 100% 50%, pink 100%, transparent 100% );
+}
+
+.tab-box-centre {
+	display: flex;
+	flex-direction: column;
+	flex-basis: 90%;
+	background-color: pink;
+}
+
+.tab-box-right {
+	flex-basis: 5%;
+	background-image: radial-gradient( farthest-side at 0% 50%, pink 100%, transparent 100% );
 }
 
 /* https://www.w3schools.com/howto/howto_css_overlay.asp */
