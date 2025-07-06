@@ -3,7 +3,7 @@ class Tab {
     this.enabled_tab = null;
   }
   set(e) {
-    return e.currentTarget.id;
+    this.enabled_tab = e.currentTarget.id;
   }
 }
 
@@ -50,9 +50,12 @@ function onProject(element) {
 }
 
 function onTab(e) {
+
   if (tab.enabled_tab != null) {
-    tab.enabled_tab.style.display = "none";
+    const element = iterator(tab.enabled_tab, "tab-text");
+    element.style.display = "none";
   }
+
   tab.set(e);
   const element = iterator(e.currentTarget.id, "tab-text");
   element.style.display = "block";
