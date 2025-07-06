@@ -38,7 +38,7 @@
                   <h2>{{project.title}}</h2>
               </div>
               <div class="project-image">
-                  <img src="{{ project.image.url }}" height="50px" width="50px" alt="Planets">
+                  <img src="{{ project.image.url }}" alt="Planets">
               </div>
               <div class="project-text">
                   <p>{{project.summary}}</p>
@@ -60,7 +60,7 @@
               <button type="button" class="exit-button" id="{{project.title}}" onclick="off(event)">&#x2716;</button>
             </div>
             <div class="project-image">
-              <img src="{{ project.image.url }}" height="50px" width="50px" alt="Planets">
+              <img src="{{ project.image.url }}" alt="Planets">
             </div>
 
             <div class="projects-tabs">
@@ -97,7 +97,7 @@
     {% for external_site in external_sites %}
     <div id="footer-box-sub">
       <a href="{{ external_site.url }}">
-        <img src="{{ external_site.image.url }}" height="50px" width="50px" />
+        <img src="{{ external_site.image.url }}" />
       </a>
     </div>
     {% endfor %}
