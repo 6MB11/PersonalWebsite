@@ -21,7 +21,7 @@
 	flex-basis: 320px;
 }
 
-#projects {
+.projects-tabs {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
@@ -32,17 +32,12 @@
 .project-button {
 	display: flex;
 	flex: auto;
-	width: 600px;
+	width: 100%;
+	max-width: 600px;
 	padding-left: 1%;
 	padding-right: 1%;
 	padding-top: 1%;
 	padding-bottom: 1%;
-}
-
-@media screen and (max-width: 600px) {
-	.project-button {
-		width: 100%;
-	}
 }
 
 .project-button:hover {
@@ -70,10 +65,6 @@
 	height: 250px;
 }
 
-.tab-text {
-	display: none;
-}
-
 .project-box-right {
 	width: 5%;
 	background-image: radial-gradient( farthest-side at 0% 50%, lightcoral 100%, transparent 100% );
@@ -89,6 +80,10 @@
 
 .tab-box-right {
 	background-image: radial-gradient( farthest-side at 0% 50%, pink 100%, transparent 100% );
+}
+
+.tab-text {
+	display: none;
 }
 
 /* https://www.w3schools.com/howto/howto_css_overlay.asp */
@@ -110,6 +105,7 @@
 .project-box-overlay {
 	position: absolute;
 	width: 90%;
+	max-width: none;
 	top: 5%;
 	left: 5%;
 	right: 5%;
