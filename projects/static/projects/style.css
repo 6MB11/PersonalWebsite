@@ -31,11 +31,18 @@
 
 .project-button {
 	display: flex;
-	flex-basis: 600px;
+	flex: auto;
+	width: 600px;
 	padding-left: 1%;
 	padding-right: 1%;
 	padding-top: 1%;
 	padding-bottom: 1%;
+}
+
+@media screen and (max-width: 600px) {
+	.project-button {
+		width: 100%;
+	}
 }
 
 .project-button:hover {
@@ -44,14 +51,14 @@
 }
 
 .project-box-left {
-	flex-basis: 5%;
+	width: 5%;
 	background-image: radial-gradient( farthest-side at 100% 50%, lightcoral 100%, transparent 100% );
 }
 
 .project-box-centre {
 	display: flex;
 	flex-direction: column;
-	flex-basis: 90%;
+	width: 90%;
 	background-color: lightcoral;
 }
 
@@ -68,24 +75,19 @@
 }
 
 .project-box-right {
-	flex-basis: 5%;
+	width: 5%;
 	background-image: radial-gradient( farthest-side at 0% 50%, lightcoral 100%, transparent 100% );
 }
 
 .tab-box-left {
-	flex-basis: 5%;
 	background-image: radial-gradient( farthest-side at 100% 50%, pink 100%, transparent 100% );
 }
 
 .tab-box-centre {
-	display: flex;
-	flex-direction: column;
-	flex-basis: 90%;
 	background-color: pink;
 }
 
 .tab-box-right {
-	flex-basis: 5%;
 	background-image: radial-gradient( farthest-side at 0% 50%, pink 100%, transparent 100% );
 }
 
@@ -107,6 +109,7 @@
 
 .project-box-overlay {
 	position: absolute;
+	width: 90%;
 	top: 5%;
 	left: 5%;
 	right: 5%;
