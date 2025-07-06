@@ -112,6 +112,11 @@
 	cursor: auto;
 }
 
+.project-box-overlay:hover {
+	transform: none;
+	transition: none;
+}
+
 .top-row {
 	display: flex;
 }
