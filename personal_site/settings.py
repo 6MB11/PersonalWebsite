@@ -134,7 +134,7 @@ CKEDITOR_UPLOAD_PATH="uploads/"
 
 CKEDITOR_CONFIGS = {
     'default': {
-     
+        'scayt_autoStartup': True,
         'toolbar_Custom': [
             {'name': 'document', 'items': ['Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates']},
             {'name': 'clipboard', 'items': ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']},
