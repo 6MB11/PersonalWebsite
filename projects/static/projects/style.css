@@ -17,10 +17,6 @@
 	flex-basis: 200px;
 }
 
-#header-box-resume {
-	flex-basis: 320px;
-}
-
 .projects-tabs {
 	display: flex;
 	justify-content: center;
