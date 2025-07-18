@@ -21,20 +21,19 @@
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
-	padding-left: 5%;
-	padding-right: 5%;
+	width: 95%;
+	margin: auto;
+	gap: 2vw; /* parent has no defined height so can't use % */
 }
 
 .project-button {
 	display: flex;
-	flex: auto;
+	justify-content: center;
+	flex-wrap: wrap;
 	width: 100%;
 	max-width: 600px;
 	border-radius: 5% / 50%;
-	padding-left: 1%;
-	padding-right: 1%;
-	padding-top: 1%;
-	padding-bottom: 1%;
+	background-color: lightcoral;
 }
 
 .project-button:hover {
@@ -42,41 +41,25 @@
 	transition: transform 400ms;
 }
 
-.project-box-left {
-	width: 5%;
-	background-image: radial-gradient( farthest-side at 100% 50%, lightcoral 100%, transparent 100% );
-}
-
-.project-box-centre {
-	display: flex;
-	flex-direction: column;
-	width: 90%;
-	background-color: lightcoral;
-}
-
 .project-title {
-	flex-grow: 1;
+	width: 90%;
+}
+
+.project-title-overlay {
+	width: none;
 }
 
 .project-image {
+	width: 90%;
 	height: 250px;
 }
 
-.project-box-right {
-	width: 5%;
-	background-image: radial-gradient( farthest-side at 0% 50%, lightcoral 100%, transparent 100% );
+.project-text {
+	width: 90%;
 }
 
-.tab-box-left {
-	background-image: radial-gradient( farthest-side at 100% 50%, pink 100%, transparent 100% );
-}
-
-.tab-box-centre {
-	background-color: pink;
-}
-
-.tab-box-right {
-	background-image: radial-gradient( farthest-side at 0% 50%, pink 100%, transparent 100% );
+.tab-button {
+	background-color: lightpink;
 }
 
 .tab-text {
@@ -102,7 +85,7 @@
 .project-box-overlay {
 	position: absolute;
 	width: 90%;
-	max-width: none;
+	max-width: none; /* override previous max width set in project-box */
 	top: 5%;
 	left: 5%;
 	right: 5%;
@@ -116,10 +99,8 @@
 
 .top-row {
 	display: flex;
-}
-
-.exit-button {
-	padding-top: 1.245em; /* 0.83 * 1.5 */
+	justify-content: center;
+	width: 90%;
 }
 
 #footer-box {
