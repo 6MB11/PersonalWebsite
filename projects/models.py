@@ -25,8 +25,7 @@ class Tab(models.Model):
     text = RichTextUploadingField()
 
     def __str__(self):
-        pk = str(self.pk)
-        return pk
+        return self.owner + " " + self.title
 
     class Meta:
         ordering = ['owner', 'title']

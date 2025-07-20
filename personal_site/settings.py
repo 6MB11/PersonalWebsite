@@ -130,11 +130,14 @@ STATICFILES_DIRS = [
 #https://www.pycodemates.com/2022/03/integrate-ckeditor-to-django-admin-and-form-fields.html
 
 #ckeditor upload path
-CKEDITOR_UPLOAD_PATH="uploads/"
+CKEDITOR_UPLOAD_PATH = "uploads/"
 
+#partially based on https://stackoverflow.com/a/46287523
 CKEDITOR_CONFIGS = {
     'default': {
         'scayt_autoStartup': True,
+        'removePlugins': 'stylesheetparser',
+        'allowedContent': True,
         'toolbar_Custom': [
             {'name': 'document', 'items': ['Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates']},
             {'name': 'clipboard', 'items': ['Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo']},

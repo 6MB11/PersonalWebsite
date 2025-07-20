@@ -2,17 +2,17 @@
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
-	padding-left: 5%;
-	padding-right: 5%;
+	padding-top: 10px;
 	padding-bottom: 10px;
+	gap: 50px;
 }
 
 #header-box-text {
+	text-align: center;
 	flex-basis: 320px;
 }
 
 #header-box-image {
-	display: flex;
 	align-items: center;
 	flex-basis: 200px;
 }
