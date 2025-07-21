@@ -19,5 +19,6 @@ from . import views
 
 urlpatterns = [
     path('', views.home),
+    path('/<str:project_title>', views.home),
     path('ckeditor/', include('ckeditor_uploader.urls'))
 ]
