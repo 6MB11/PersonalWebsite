@@ -47,6 +47,7 @@
 
 .project-title-overlay {
 	width: none;
+	flex-grow: 1;
 }
 
 .project-image {
@@ -69,7 +70,6 @@
 /* https://www.w3schools.com/howto/howto_css_overlay.asp */
 .background-overlay {
 	position: fixed; /* Sit on top of the page content */
-	display: none; /* Hidden by default */
 	width: 100%; /* Full width (cover the whole page) */
 	height: 100%; /* Full height (cover the whole page) */
 	top: 0;
