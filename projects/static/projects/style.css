@@ -45,14 +45,9 @@
 	width: 90%;
 }
 
-.project-title-overlay {
-	width: none;
-	flex-grow: 1;
-}
-
 .project-image {
 	width: 90%;
-	height: 250px;
+	max-height: 250px;
 }
 
 .project-text {
@@ -98,10 +93,26 @@
 	transition: none;
 }
 
+.exit-button {
+	text-align: right;
+	width: 90%;
+	padding-top: 10px;
+}
+
 .top-row {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 	width: 90%;
+}
+
+.project-title-overlay {
+	width: none;
+}
+
+.project-image-overlay {
+	width: none;
+	flex-grow: 1;
 }
 
 #footer-box {
@@ -114,7 +125,7 @@
 }
 
 #footer-box-sub {
-	margin: 10px;
+	padding: 10px;
 }
 
 button {
@@ -132,6 +143,10 @@ h1 {
 }
 
 h2 {
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+h3 {
 	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
