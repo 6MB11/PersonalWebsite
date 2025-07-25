@@ -48,6 +48,7 @@
 .project-image {
 	width: 90%;
 	max-height: 250px;
+	max-width: 600px;
 }
 
 .project-text {
@@ -97,21 +98,23 @@
 	text-align: right;
 	width: 90%;
 	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 .top-row {
 	display: flex;
+	justify-content: space-between;
 	flex-wrap: wrap;
-	justify-content: center;
 	width: 90%;
+	padding-bottom: 1em; /* 1 em is 16 px (font size), matches paragraph's default padding */
 }
 
 .project-title-overlay {
-	width: none;
+	max-width: 600px;
 }
 
 .project-image-overlay {
-	width: none;
+	max-width: 600px;
 	flex-grow: 1;
 }
 
