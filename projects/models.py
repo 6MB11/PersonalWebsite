@@ -9,6 +9,7 @@ class Project(models.Model):
     title = models.CharField(max_length=50)
     summary = models.CharField(max_length=250)
     image = models.ImageField(upload_to="projects")
+    image_text = models.TextField()
     text = RichTextUploadingField()
     slug = models.SlugField()
     order = models.SmallIntegerField(default=0)

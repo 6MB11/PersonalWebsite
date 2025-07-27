@@ -33,7 +33,7 @@
           <h2>{{project.title}}</h2>
         </div>
         <div class="project-image">
-          <img src="{{ project.image.url }}">
+          <img src="{{ project.image.url }}" alt="{{project.image_text}}">
         </div>
         <div class="project-text">
           <p>{{project.summary}}</p>
@@ -62,7 +62,7 @@
 
           {% for tab in project.tab_set.all %}
           <aside class="tab-text" id="{{tab.id}}">
-            <p>{{tab.text|safe}}</p>
+            {{tab.text|safe}}
           </aside>
           {% endfor %}
 
