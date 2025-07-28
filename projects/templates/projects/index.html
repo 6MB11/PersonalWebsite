@@ -15,50 +15,38 @@
 <body style="{% if slug %}overflow: hidden;{% else %}overflow: auto;{% endif %}">
 
   <header id="header-box">
-    <div id="header-box-text">
+    <section id="header-box-text">
       <h1>Marko Buha</h1>
       <p>Software Engineering Master's student with an array of experiences in embedded software development</p>
-    </div>
-    <div id="header-box-image">
-      <img src="{% static 'personal_site/portrait.jpg' %}" alt="Self-portrait" />
-    </div>
+      <img id="header-box-image" src="{% static 'personal_site/portrait.jpg' %}" alt="Self-portrait" />
+    </section>
   </header>
 
-  <div class="projects-tabs">
+  <main class="projects-tabs">
 
       {% for project in projects %}
 
       <button type="button" class="project-button" id="{{project.title}}" onclick="on(event)">
-        <div class="project-title">
-          <h2>{{project.title}}</h2>
-        </div>
-        <div class="project-image">
-          <img src="{{ project.image.url }}" alt="{{project.image_text}}">
-        </div>
-        <div class="project-text">
-          <p>{{project.summary}}</p>
-        </div>
+        <h2 class="project-title">{{project.title}}</h2>
+        <img class="project-image" src="{{ project.image.url }}" alt="{{project.image_text}}">
+        <p class="project-text">{{project.summary}}</p>
       </button>
 
       <aside class="background-overlay" id="{{project.title}}" onclick="off(event)" style="{% if slug == project.slug %}display: block;{% else %}display: none;{% endif %}">
-        <div class="project-button project-box-overlay" id="{{project.title}}">
+        <article class="project-button project-box-overlay" id="{{project.title}}">
           <button type="button" class="exit-button" id="{{project.title}}" onclick="off(event)">&#x2716;</button>
-          <div class="top-row">
-            <div class="project-title-overlay">
-              <h2>{{project.title}}</h2>
-            </div>
-            <div class="project-image-overlay">
-              <img src="{{ project.image.url }}">
-            </div>
-          </div>
+          <section class="top-row">
+            <h2 class="project-title-overlay">{{project.title}}</h2>
+            <img class="project-image-overlay" src="{{ project.image.url }}" alt="{{project.image_text}}">
+          </section>
 
-          <div class="projects-tabs">
+          <section class="projects-tabs">
             {% for tab in project.tab_set.all %}
             <button class="project-button tab-button" type="button" id="{{tab.id}}" onclick="onTab(event)">
               <h3>{{tab.title}}</h3>
             </button>
             {% endfor %}
-          </div>
+          </section>
 
           {% for tab in project.tab_set.all %}
           <aside class="tab-text" id="{{tab.id}}">
@@ -66,23 +54,21 @@
           </aside>
           {% endfor %}
 
-          <div class="project-text">
+          <section class="project-text">
             {{project.text|safe}}
-          </div>
-        </div>
+          </section>
+        </article>
       </aside>
 
       {% endfor %}
 
-  </div>
+  </main>
 
   <footer id="footer-box">
     {% for external_site in external_sites %}
-    <div id="footer-box-sub">
-      <a href="{{ external_site.url }}">
-        <img src="{{ external_site.image.url }}" />
-      </a>
-    </div>
+    <a id="footer-box-sub" href="{{ external_site.url }}">
+      <img src="{{ external_site.image.url }}" />
+    </a>
     {% endfor %}
   </footer>
 
