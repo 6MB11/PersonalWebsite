@@ -21,6 +21,17 @@ function onPageLoad() {
   onProject(element);
 }
 
+// https://css-tricks.com/block-links-the-search-for-a-perfect-solution
+const card = document.querySelector(".card")
+card.addEventListener("click", handleClick)
+ 
+function handleClick(event) {
+  const isTextSelected = window.getSelection().toString();
+  if (!isTextSelected) {
+    on(event);
+  }
+}
+
 function on(e) {
   const element = iterator(e.currentTarget.id, "background-overlay");
   onProject(element);
