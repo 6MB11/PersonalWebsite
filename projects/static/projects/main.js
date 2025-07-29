@@ -17,7 +17,7 @@ function onPageLoad() {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const project = urlParams.get("project");
-  const element = iterator(project, "background-overlay");
+  const element = iterator("background-overlay:" + getSecondPart(project));
   onProject(element);
 }
 
@@ -33,26 +33,20 @@ function handleClick(event) {
 }
 
 function on(e) {
-  const element = iterator(e.target.id, "background-overlay");
+  const element = iterator("background-overlay:" + getSecondPart(e.target.id));
   onProject(element);
 }
 
 function off(e) {
   if (e.target !== e.currentTarget) return;
-  const element = iterator(e.currentTarget.id, "background-overlay");
+  const element = iterator("background-overlay:" + getSecondPart(e.currentTarget.id));
   element.style.display = "none";
   document.body.style.overflow = "auto";
 }
 
-function iterator(idName, className) {
-  const elements = document.getElementsByClassName(className);
-  for (var i = 0; i < elements.length; i++) {
-    if (elements[i].id === idName) {
-      return elements[i];
-    }
-  }
-  return null;
-}
+function iterator(idName) {
+  const element = document.getElementByID(idName);
+  return element;
 
 function onProject(element) {
   if (element === null) return;
@@ -63,11 +57,15 @@ function onProject(element) {
 function onTab(e) {
 
   if (tab.enabled_tab != null) {
-    const element = iterator(tab.enabled_tab, "tab-text");
+    const element = iterator("tab-text:" + getSecondPart(tab.enabled_tab));
     element.style.display = "none";
   }
 
   tab.set(e);
-  const element = iterator(e.currentTarget.id, "tab-text");
+  const element = iterator("tab-text:" + getSecondPart(e.currentTarget.id));
   element.style.display = "block";
+}
+
+function getSecondPart(str) {
+    return str.split(':')[1];
 }
