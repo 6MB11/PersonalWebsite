@@ -14,7 +14,8 @@
 
 #header-box-image {
 	align-items: center;
-	flex-basis: 200px;
+	max-height: 250px;
+	max-width: 600px;
 }
 
 .projects-tabs {
@@ -27,6 +28,7 @@
 }
 
 .project-button {
+	position: relative;
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
@@ -43,6 +45,7 @@
 
 .project-title {
 	width: 90%;
+	text-align: center;
 }
 
 .project-image {
@@ -53,6 +56,7 @@
 
 .project-text {
 	width: 90%;
+	text-align: center;
 }
 
 .tab-button {
@@ -71,8 +75,6 @@
 	height: 100%; /* Full height (cover the whole page) */
 	top: 0;
 	left: 0;
-	right: 0;
-	bottom: 0;
 	background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
 	cursor: default; /* Add a pointer on hover */
 	overflow-y: auto;
@@ -103,7 +105,7 @@
 
 .top-row {
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	flex-wrap: wrap;
 	width: 90%;
 	padding-bottom: 1em; /* 1 em is 16 px (font size), matches paragraph's default padding */
@@ -141,6 +143,22 @@ button {
 	outline: inherit;
 }
 
+/* https://piccalil.li/blog/create-a-semantic-break-out-button-to-make-an-entire-element-clickable */
+.hidden-button {
+	position: static;
+}
+
+.hidden-button::before {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border-radius: 5% / 50%;
+}
+
 h1 {
 	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
@@ -158,8 +176,7 @@ p {
 }
 
 img {
-	max-height: 100%;
-	max-width: 100%;
+	object-fit: contain;
 }
 
 body {
