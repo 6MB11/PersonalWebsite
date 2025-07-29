@@ -147,21 +147,9 @@ button {
 	outline: inherit;
 }
 
-/* https://piccalil.li/blog/create-a-semantic-break-out-button-to-make-an-entire-element-clickable 
-https://www.damianwajer.com/blog/accessible-card-component */
+/* https://css-tricks.com/block-links-the-search-for-a-perfect-solution/ */
 .hidden-button {
 	position: static;
-}
-
-.hidden-button::after {
-	content: '';
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	border-radius: 5% / 50%;
 }
 
 h1 {
