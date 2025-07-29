@@ -26,11 +26,11 @@
 
     {% for project in projects %}
 
-    <article class="project-button">
-      <h2 class="project-title">{{project.title}}</h2>
-      <img class="project-image" src="{{ project.image.url }}" alt="{{project.image_text}}">
-      <p class="project-text">{{project.summary}}</p>
-      <button type="button" class="hidden-button" id="{{project.title}}" onclick="on(event)"></button>
+    <article class="project-button" id="{{project.title}}">
+      <h2 class="project-title" id="{{project.title}}">{{project.title}}</h2>
+      <img class="project-image" id="{{project.title}}" src="{{ project.image.url }}" alt="{{project.image_text}}">
+      <p class="project-text" id="{{project.title}}">{{project.summary}}</p>
+      <button type="button" class="hidden-button" id="{{project.title}}" onclick="on(event)">See more details</button>
     </article>
 
     <div class="background-overlay" id="{{project.title}}" onclick="off(event)" style="{% if slug == project.slug %}display: block;{% else %}display: none;{% endif %}">
