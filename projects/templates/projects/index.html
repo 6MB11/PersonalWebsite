@@ -26,16 +26,16 @@
 
     {% for project in projects %}
 
-    <article class="project-button" id="{{project.title}}">
-      <h2 class="project-title" id="{{project.title}}">{{project.title}}</h2>
-      <img class="project-image" id="{{project.title}}" src="{{ project.image.url }}" alt="{{project.image_text}}">
-      <p class="project-text" id="{{project.title}}">{{project.summary}}</p>
-      <button type="button" class="hidden-button" id="{{project.title}}" onclick="on(event)">See more details</button>
+    <article class="project-button" id="project-button:{{project.title}}">
+      <h2 class="project-title" id="project-title:{{project.title}}">{{project.title}}</h2>
+      <img class="project-image" id="project-image:{{project.title}}" src="{{ project.image.url }}" alt="{{project.image_text}}">
+      <p class="project-text" id="project-text:{{project.title}}">{{project.summary}}</p>
+      <button type="button" class="hidden-button">See more details</button>
     </article>
 
-    <div class="background-overlay" id="{{project.title}}" onclick="off(event)" style="{% if slug == project.slug %}display: block;{% else %}display: none;{% endif %}">
-      <article class="project-button project-box-overlay" id="{{project.title}}">
-        <button type="button" class="exit-button" id="{{project.title}}" onclick="off(event)">&#x2716;</button>
+    <div class="background-overlay" id="background-overlay:{{project.title}}" onclick="off(event)" style="{% if slug == project.slug %}display: block;{% else %}display: none;{% endif %}">
+      <article class="project-button project-box-overlay">
+        <button type="button" class="exit-button" id="exit-button:{{project.title}}" onclick="off(event)">&#x2716;</button>
         <section class="top-row">
           <h2 class="project-title-overlay">{{project.title}}</h2>
           <img class="project-image-overlay" src="{{ project.image.url }}" alt="{{project.image_text}}">
@@ -50,7 +50,7 @@
         </section>
 
         {% for tab in project.tab_set.all %}
-        <aside class="tab-text" id="{{tab.id}}">
+        <aside class="tab-text" id="tab-text:{{tab.id}}">
           {{tab.text|safe}}
         </aside>
         {% endfor %}
