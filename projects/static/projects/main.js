@@ -3,11 +3,19 @@ class Tab {
     this.enabled_tab = null;
   }
   set(e) {
-    this.enabled_tab = e.currentTarget.id;
+    this.enabled_tab = e.target.id;
   }
 }
 
 var tab = new Tab();
+
+/* This is done in JS as if user has JS disabled, button wouldn't work so wouldn't make sense to change cursor
+https://css-tricks.com/block-links-the-search-for-a-perfect-solution */
+const projectButton = document.querySelectorAll('.project-button');
+projectButton.forEach(element => {
+  element.style.cursor = "pointer",
+  element.addEventListener("click", handleClick)
+});
 
 document.addEventListener("DOMContentLoaded", function() {
   onPageLoad();
@@ -21,10 +29,6 @@ function onPageLoad() {
   onProject(element);
 }
 
-// https://css-tricks.com/block-links-the-search-for-a-perfect-solution
-const card = document.querySelector(".project-button")
-card.addEventListener("click", handleClick)
- 
 function handleClick(e) {
   const isTextSelected = window.getSelection().toString();
   if (!isTextSelected) {
@@ -36,6 +40,7 @@ function on(e) {
   if (getFirstSubPart(e.target.id) == "project") {
     const element = iterator("background-overlay:" + getSecondPart(e.target.id));
     onProject(element);
+  }
   else {
     onTab(e);
   }
@@ -49,8 +54,9 @@ function off(e) {
 }
 
 function iterator(idName) {
-  const element = document.getElementByID(idName);
+  const element = document.getElementById(idName);
   return element;
+}
 
 function onProject(element) {
   if (element === null) return;
@@ -66,14 +72,15 @@ function onTab(e) {
   }
 
   tab.set(e);
-  const element = iterator("tab-text:" + getSecondPart(e.currentTarget.id));
+  const element = iterator("tab-text:" + getSecondPart(e.target.id));
   element.style.display = "block";
 }
 
 function getFirstSubPart(str) {
-    return str.split('-')[0];
+   return str.split('-')[0];
 }
 
 function getSecondPart(str) {
-    return str.split(':')[1];
+  if (str === null) return;
+  return str.split(':')[1];
 }

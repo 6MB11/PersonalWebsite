@@ -30,23 +30,30 @@
       <h2 class="project-title" id="project-title:{{project.title}}">{{project.title}}</h2>
       <img class="project-image" id="project-image:{{project.title}}" src="{{ project.image.url }}" alt="{{project.image_text}}">
       <p class="project-text" id="project-text:{{project.title}}">{{project.summary}}</p>
-      <button type="button" class="project-hidden-button">See more details</button>
+      <button type="button" class="hidden-button">See more details</button>
     </article>
 
+    {% endfor %}
+
+    {% for project in projects %}
+
     <div class="background-overlay" id="background-overlay:{{project.title}}" onclick="off(event)" style="{% if slug == project.slug %}display: block;{% else %}display: none;{% endif %}">
-      <article class="project-button project-box-overlay">
+      <article class="project-box-overlay">
         <button type="button" class="exit-button" id="exit-button:{{project.title}}" onclick="off(event)">&#x2716;</button>
         <section class="top-row">
           <h2 class="project-title-overlay">{{project.title}}</h2>
-          <img class="project-image-overlay" src="{{ project.image.url }}" alt="{{project.image_text}}">
+          <img class="project-image" src="{{ project.image.url }}" alt="{{project.image_text}}">
         </section>
 
         <section class="projects-tabs">
+
           {% for tab in project.tab_set.all %}
-          <button class="project-button tab-button" type="button" id="{{tab.id}}" onclick="onTab(event)">
+          <section class="project-button tab-button">
             <h3>{{tab.title}}</h3>
-          </button>
+            <button class="hidden-button">See more details</button>
+          </section>
           {% endfor %}
+
         </section>
 
         {% for tab in project.tab_set.all %}

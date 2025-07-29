@@ -11,7 +11,7 @@ class Project(models.Model):
     image = models.ImageField(upload_to="projects")
     image_text = models.TextField()
     text = RichTextUploadingField()
-    slug = models.SlugField()
+    slug = models.SlugField(null=True, unique=True, blank=True)
     order = models.SmallIntegerField(default=0)
 
     def __str__(self):
