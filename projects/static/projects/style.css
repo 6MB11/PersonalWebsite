@@ -149,6 +149,7 @@ button {
 
 /* https://css-tricks.com/block-links-the-search-for-a-perfect-solution/ */
 .hidden-button {
+	display: none;
 	position: static;
 }
 
