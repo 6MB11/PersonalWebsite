@@ -33,7 +33,7 @@ function handleClick(e) {
 }
 
 function on(e) {
-  if (getFirstPart(e.target.id == "project") {
+  if (getFirstSubPart(e.target.id) == "project") {
     const element = iterator("background-overlay:" + getSecondPart(e.target.id));
     onProject(element);
   else {
