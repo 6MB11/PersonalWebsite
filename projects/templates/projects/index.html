@@ -4,6 +4,7 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="description" content="Software Engineering Master's student with an array of experiences in embedded software development">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Marko Buha</title>
@@ -45,16 +46,17 @@
           <img class="project-image" src="{{ project.image.url }}" alt="{{project.image_text}}">
         </section>
 
-        <section class="projects-tabs">
+        <!--Sections should have headers, this doesn't-->
+        <div class="projects-tabs">
 
           {% for tab in project.tab_set.all %}
-          <section class="project-button tab-button">
-            <h3>{{tab.title}}</h3>
+          <section class="project-button tab-button" id="tab-button:{{tab.id}}">
+            <h3 id="h3:{{tab.id}}">{{tab.title}}</h3>
             <button class="hidden-button">See more details</button>
           </section>
           {% endfor %}
 
-        </section>
+        </div>
 
         {% for tab in project.tab_set.all %}
         <aside class="tab-text" id="tab-text:{{tab.id}}">
@@ -62,9 +64,9 @@
         </aside>
         {% endfor %}
 
-        <section class="project-text">
+        <div class="project-text">
           {{project.text|safe}}
-        </section>
+        </div>
       </article>
     </div>
 
