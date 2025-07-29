@@ -38,24 +38,28 @@
 	background-color: lightcoral;
 }
 
-.project-button:hover {
+.project-button:hover,
+.project-button:focus-within {
 	transform: scaleY(1.04);
 	transition: transform 400ms;
 }
 
 .project-title {
 	width: 90%;
+	z-index: 1;
 	text-align: center;
 }
 
 .project-image {
 	width: 90%;
+	z-index: 1;
 	max-height: 250px;
 	max-width: 600px;
 }
 
 .project-text {
 	width: 90%;
+	z-index: 1;
 	text-align: center;
 }
 
@@ -143,12 +147,13 @@ button {
 	outline: inherit;
 }
 
-/* https://piccalil.li/blog/create-a-semantic-break-out-button-to-make-an-entire-element-clickable */
+/* https://piccalil.li/blog/create-a-semantic-break-out-button-to-make-an-entire-element-clickable 
+https://www.damianwajer.com/blog/accessible-card-component */
 .hidden-button {
 	position: static;
 }
 
-.hidden-button::before {
+.hidden-button::after {
 	content: '';
 	display: block;
 	position: absolute;
