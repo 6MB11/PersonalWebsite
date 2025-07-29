@@ -30,7 +30,7 @@
       <h2 class="project-title" id="project-title:{{project.title}}">{{project.title}}</h2>
       <img class="project-image" id="project-image:{{project.title}}" src="{{ project.image.url }}" alt="{{project.image_text}}">
       <p class="project-text" id="project-text:{{project.title}}">{{project.summary}}</p>
-      <button type="button" class="hidden-button">See more details</button>
+      <button type="button" class="project-hidden-button">See more details</button>
     </article>
 
     <div class="background-overlay" id="background-overlay:{{project.title}}" onclick="off(event)" style="{% if slug == project.slug %}display: block;{% else %}display: none;{% endif %}">
