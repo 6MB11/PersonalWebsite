@@ -25,16 +25,20 @@ function onPageLoad() {
 const card = document.querySelector(".project-button")
 card.addEventListener("click", handleClick)
  
-function handleClick(event) {
+function handleClick(e) {
   const isTextSelected = window.getSelection().toString();
   if (!isTextSelected) {
-    on(event);
+    on(e);
   }
 }
 
 function on(e) {
-  const element = iterator("background-overlay:" + getSecondPart(e.target.id));
-  onProject(element);
+  if (getFirstPart(e.target.id == "project") {
+    const element = iterator("background-overlay:" + getSecondPart(e.target.id));
+    onProject(element);
+  else {
+    onTab(e);
+  }
 }
 
 function off(e) {
@@ -64,6 +68,10 @@ function onTab(e) {
   tab.set(e);
   const element = iterator("tab-text:" + getSecondPart(e.currentTarget.id));
   element.style.display = "block";
+}
+
+function getFirstSubPart(str) {
+    return str.split('-')[0];
 }
 
 function getSecondPart(str) {
