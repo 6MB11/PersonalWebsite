@@ -1,3 +1,47 @@
+// Page load functions
+
+document.addEventListener("DOMContentLoaded", function () {
+  onPageLoad();
+});
+
+function onPageLoad() {
+  const queryString = window.location.pathname;
+  const parts = queryString.split('/');
+  const project = parts[1];
+  const dialog = elementFromId("background-overlay:" + project);
+  if (dialog == null) return;
+  dialog.showModal();
+}
+
+/* Project functions
+Cancel button closes the dialog box */
+const exitButton = document.querySelectorAll('.exit-button');
+exitButton.forEach(element => {
+  element.addEventListener("click", () => {
+    const dialog = elementFromId("background-overlay:" + getSecondPart(element.id))
+    dialog.close();
+  });
+});
+
+// Project button opens a modal dialog
+const projectButton = document.querySelectorAll('.project-button');
+projectButton.forEach(element => {
+  element.style.cursor = "pointer" // This is done in JS as if user has JS disabled, button wouldn't work so wouldn't make sense to change cursor
+  const dialog = elementFromId("background-overlay:" + getSecondPart(element.id))
+  element.addEventListener("click", () => {
+    dialog.showModal();
+  });
+});
+
+// So clicking outside of dialog closes it
+function off(e) {
+  const dialog = elementFromId("background-overlay:" + getSecondPart(e.target.id));
+  dialog.close();
+}
+
+/* Tab functions
+https://css-tricks.com/block-links-the-search-for-a-perfect-solution */
+
 class Tab {
   constructor() {
     this.enabled_tab = null;
@@ -9,75 +53,36 @@ class Tab {
 
 var tab = new Tab();
 
-/* This is done in JS as if user has JS disabled, button wouldn't work so wouldn't make sense to change cursor
-https://css-tricks.com/block-links-the-search-for-a-perfect-solution */
-const projectButton = document.querySelectorAll('.project-button');
-projectButton.forEach(element => {
+const tabButton = document.querySelectorAll('.tab-button');
+tabButton.forEach(element => {
   element.style.cursor = "pointer",
   element.addEventListener("click", handleClick)
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-  onPageLoad();
-});
-
-function onPageLoad() {
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  const project = urlParams.get("project");
-  const element = iterator("background-overlay:" + getSecondPart(project));
-  onProject(element);
-}
-
 function handleClick(e) {
   const isTextSelected = window.getSelection().toString();
   if (!isTextSelected) {
-    on(e);
-  }
-}
-
-function on(e) {
-  if (getFirstSubPart(e.target.id) == "project") {
-    const element = iterator("background-overlay:" + getSecondPart(e.target.id));
-    onProject(element);
-  }
-  else {
     onTab(e);
   }
-}
-
-function off(e) {
-  if (e.target !== e.currentTarget) return;
-  const element = iterator("background-overlay:" + getSecondPart(e.currentTarget.id));
-  element.style.display = "none";
-  document.body.style.overflow = "auto";
-}
-
-function iterator(idName) {
-  const element = document.getElementById(idName);
-  return element;
-}
-
-function onProject(element) {
-  if (element === null) return;
-  element.style.display = "block";
-  document.body.style.overflow = "hidden";
 }
 
 function onTab(e) {
 
   if (tab.enabled_tab != null) {
-    const element = iterator("tab-text:" + getSecondPart(tab.enabled_tab));
+    const element = elementFromId("tab-text:" + getSecondPart(tab.enabled_tab));
     element.style.display = "none";
   }
 
   tab.set(e);
-  const element = iterator("tab-text:" + getSecondPart(e.target.id));
+  const element = elementFromId("tab-text:" + getSecondPart(e.target.id));
   element.style.display = "block";
 }
 
-function getFirstSubPart(str) {
-   return str.split('-')[0];
+// Helper functions
+function elementFromId(idName) {
+  console.log(idName);
+  const element = document.getElementById(idName);
+  return element;
 }
 
 function getSecondPart(str) {

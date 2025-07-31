@@ -38,6 +38,17 @@
 	background-color: lightcoral;
 }
 
+.tab-button {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	width: 100%;
+	max-width: 600px;
+	border-radius: 5% / 50%;
+	background-color: white;
+}
+
 .project-button:hover,
 .project-button:focus-within {
 	transform: scaleY(1.04);
@@ -62,10 +73,6 @@
 .project-text {
 	width: 90%;
 	text-align: center;
-}
-
-.tab-button {
-	background-color: white;
 }
 
 .tab-text {

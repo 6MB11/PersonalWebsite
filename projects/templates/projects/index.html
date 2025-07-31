@@ -13,7 +13,7 @@
   <link rel="shortcut icon" type="image/png" href="{% static 'personal_site/personal_site.jpg' %}">
 </head>
 
-<body style="{% if slug %}overflow: hidden;{% else %}overflow: auto;{% endif %}">
+<body>
 
   <header id="header-box">
     <section id="header-box-text">
@@ -27,10 +27,10 @@
 
     {% for project in projects %}
 
-    <article class="project-button" id="project-button:{{project.title}}">
-      <h2 class="project-title" id="project-title:{{project.title}}">{{project.title}}</h2>
-      <img class="project-image" id="project-image:{{project.title}}" src="{{ project.image.url }}" alt="{{project.image_text}}">
-      <p class="project-text" id="project-text:{{project.title}}">{{project.summary}}</p>
+    <article class="project-button" id="project-button:{{project.slug}}">
+      <h2 class="project-title" id="project-title:{{project.slug}}">{{project.title}}</h2>
+      <img class="project-image" id="project-image:{{project.slug}}" src="{{ project.image.url }}" alt="{{project.image_text}}">
+      <p class="project-text" id="project-text:{{project.slug}}">{{project.summary}}</p>
       <button type="button" class="hidden-button">See more details</button>
     </article>
 
@@ -38,9 +38,9 @@
 
     {% for project in projects %}
 
-    <div class="background-overlay" id="background-overlay:{{project.title}}" onclick="off(event)" style="{% if slug == project.slug %}display: block;{% else %}display: none;{% endif %}">
+    <dialog class="background-overlay" id="background-overlay:{{project.slug}}" onclick="off(event)">
       <article class="project-box-overlay">
-        <button type="button" class="exit-button" id="exit-button:{{project.title}}" onclick="off(event)">&#x2716;</button>
+        <button class="exit-button" id="exit-button:{{project.slug}}" onclick="off(event)" aria-label="Close dialog">&#x2716;</button>
         <section class="top-row">
           <h2 class="project-title-overlay">{{project.title}}</h2>
           <img class="project-image" src="{{ project.image.url }}" alt="{{project.image_text}}">
@@ -50,7 +50,7 @@
         <div class="projects-tabs">
 
           {% for tab in project.tab_set.all %}
-          <section class="project-button tab-button" id="tab-button:{{tab.id}}">
+          <section class="tab-button" id="tab-button:{{tab.id}}">
             <h3 id="h3:{{tab.id}}">{{tab.title}}</h3>
             <button class="hidden-button">See more details</button>
           </section>
@@ -68,7 +68,7 @@
           {{project.text|safe}}
         </div>
       </article>
-    </div>
+    </dialog>
 
     {% endfor %}
 
