@@ -18,7 +18,7 @@ class Project(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
-        slug = slugify(self.title)
+        self.slug = slugify(self.title)
         super(Project, self).save(*args, **kwargs)
 
     class Meta:
