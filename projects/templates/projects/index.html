@@ -34,10 +34,6 @@
       <button type="button" class="hidden-button">See more details</button>
     </article>
 
-    {% endfor %}
-
-    {% for project in projects %}
-
     <dialog class="background-overlay" id="background-overlay:{{project.slug}}" onclick="off(event)">
       <article class="project-box-overlay">
         <button class="exit-button" id="exit-button:{{project.slug}}" onclick="off(event)" aria-label="Close dialog">&#x2716;</button>
@@ -47,10 +43,10 @@
         </section>
 
         <!--Sections should have headers, this doesn't-->
-        <div class="projects-tabs">
+        <div class="projects-tabs" role="tablist">
 
           {% for tab in project.tab_set.all %}
-          <section class="tab-button" id="tab-button:{{tab.id}}">
+          <section class="tab-button" role="tab" aria-controls="tab-text:{{tab.id}}" id="tab-button:{{tab.id}}">
             <h3 id="h3:{{tab.id}}">{{tab.title}}</h3>
             <button class="hidden-button">See more details</button>
           </section>
@@ -59,7 +55,7 @@
         </div>
 
         {% for tab in project.tab_set.all %}
-        <aside class="tab-text" id="tab-text:{{tab.id}}">
+        <aside class="tab-text" role="tabpanel" id="tab-text:{{tab.id}}">
           {{tab.text|safe}}
         </aside>
         {% endfor %}

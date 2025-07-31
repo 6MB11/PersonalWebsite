@@ -23,7 +23,7 @@
 	justify-content: center;
 	flex-wrap: wrap;
 	width: 95%;
-	margin: auto;
+	padding: auto;
 	gap: 2vw; /* parent has no defined height so can't use % */
 }
 
@@ -85,10 +85,12 @@
 	position: fixed; /* Sit on top of the page content */
 	width: 100%; /* Full width (cover the whole page) */
 	height: 100%; /* Full height (cover the whole page) */
-	top: 0;
-	left: 0;
 	background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
 	overflow-y: auto;
+	/* Overwriting defaults */
+	max-width: calc(100vw - 15px); /* 15 px is approximate scrollbar width, fixed elements cannot be set relative to body using % */
+	max-height: 100%;
+	border: none;
 }
 
 /* Not assuming inheritance from project-box as would cause issues with .querySelectorAll() */
@@ -111,10 +113,10 @@
 }
 
 .exit-button {
-	text-align: right;
-	width: 90%;
+	justify-self: right;
 	padding-top: 10px;
 	padding-bottom: 10px;
+	margin-left: 85%; /* margin so area is not clickable */
 	cursor: pointer;
 }
 
@@ -141,10 +143,7 @@
 
 button {
 	background: none;
-	color: inherit;
 	border: inherit;
-	padding: 0;
-	font: inherit;
 	outline: inherit;
 }
 
@@ -154,18 +153,10 @@ button {
 	display: none;
 }
 
-h1 {
-	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-}
-
-h2 {
-	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-}
-
-h3 {
-	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-}
-
+h1,
+h2,
+h3,
+h4,
 p {
 	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }

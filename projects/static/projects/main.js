@@ -30,13 +30,16 @@ projectButton.forEach(element => {
   const dialog = elementFromId("background-overlay:" + getSecondPart(element.id))
   element.addEventListener("click", () => {
     dialog.showModal();
+    document.body.style.overflow = "hidden";
   });
 });
 
 // So clicking outside of dialog closes it
 function off(e) {
+  if (e.target !== e.currentTarget) return; // Prevent function from running when clicking on a child element
   const dialog = elementFromId("background-overlay:" + getSecondPart(e.target.id));
   dialog.close();
+  document.body.style.overflow = "auto";
 }
 
 /* Tab functions
@@ -80,7 +83,6 @@ function onTab(e) {
 
 // Helper functions
 function elementFromId(idName) {
-  console.log(idName);
   const element = document.getElementById(idName);
   return element;
 }
