@@ -84,7 +84,7 @@ function onTab(e) {
   const tabButton = elementFromId("tab-button:" + getSecondPart(e.target.id));
   tabButton.style.border = "solid";
 
-  tabText.focus(); // For accessiblity
+  // Do not move focus https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/tabpanel_role
 }
 
 // Helper functions

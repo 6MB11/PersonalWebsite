@@ -1,6 +1,6 @@
 <!doctype html>
 {% load static %}
-<html lang="en">
+<html lang="en-ca">
 
 <head>
   <meta charset="UTF-8">
@@ -54,9 +54,9 @@
 
         </div>
 
-        {% for tab in project.tab_set.all %}
+        <!--Accessibility https://www.reddit.com/r/accessibility/comments/1awwiic/comment/krkylp9-->
         <!--Need tab index to be able to move focus-->
-        <aside class="tab-text" role="tabpanel" id="tab-text:{{tab.id}}" tabindex="0" aria-description="Go back to change tab.">
+        <aside class="tab-text" role="tabpanel" id="tab-text:{{tab.id}}" tabindex="0">
           {{tab.text|safe}}
         </aside>
         {% endfor %}
