@@ -30,13 +30,13 @@
     <article class="project-button" id="project-button:{{project.slug}}">
       <h2 class="project-title" id="project-title:{{project.slug}}">{{project.title}}</h2>
       <img class="project-image" id="project-image:{{project.slug}}" src="{{ project.image.url }}" alt="{{project.image_text}}">
-      <p class="project-text" id="project-text:{{project.slug}}">{{project.summary}}</p>
+      <p class="project-summary" id="project-summary:{{project.slug}}">{{project.summary}}</p>
       <button type="button" class="hidden-button">See more details</button>
     </article>
 
     <dialog class="background-overlay" id="background-overlay:{{project.slug}}" onclick="off(event)">
       <article class="project-box-overlay">
-        <button class="exit-button" id="exit-button:{{project.slug}}" onclick="off(event)" aria-label="Close dialog">&#x2716;</button>
+        <button class="exit-button" id="exit-button:{{project.slug}}" onclick="off(event)" aria-label="Close dialog.">&#x2716;</button>
         <section class="top-row">
           <h2 class="project-title-overlay">{{project.title}}</h2>
           <img class="project-image" src="{{ project.image.url }}" alt="{{project.image_text}}">
@@ -55,14 +55,19 @@
         </div>
 
         {% for tab in project.tab_set.all %}
-        <aside class="tab-text" role="tabpanel" id="tab-text:{{tab.id}}">
+        <!--Need tab index to be able to move focus-->
+        <aside class="tab-text" role="tabpanel" id="tab-text:{{tab.id}}" tabindex="0" aria-description="Go back to change tab.">
           {{tab.text|safe}}
         </aside>
         {% endfor %}
 
+        <!--Using project-text for when there are no tabs-->
+        {% if project.tab_set.all == null %}
         <div class="project-text">
           {{project.text|safe}}
         </div>
+        {% endif %}
+
       </article>
     </dialog>
 

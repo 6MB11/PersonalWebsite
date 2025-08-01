@@ -70,15 +70,21 @@ function handleClick(e) {
 }
 
 function onTab(e) {
-
   if (tab.enabled_tab != null) {
-    const element = elementFromId("tab-text:" + getSecondPart(tab.enabled_tab));
-    element.style.display = "none";
+    const tabText = elementFromId("tab-text:" + getSecondPart(tab.enabled_tab));
+    tabText.style.display = "none";
+    const tabButton = elementFromId("tab-button:" + getSecondPart(tab.enabled_tab));
+    tabButton.style.border = "none";
   }
 
   tab.set(e);
-  const element = elementFromId("tab-text:" + getSecondPart(e.target.id));
-  element.style.display = "block";
+
+  const tabText = elementFromId("tab-text:" + getSecondPart(e.target.id));
+  tabText.style.display = "block";
+  const tabButton = elementFromId("tab-button:" + getSecondPart(e.target.id));
+  tabButton.style.border = "solid";
+
+  tabText.focus(); // For accessiblity
 }
 
 // Helper functions

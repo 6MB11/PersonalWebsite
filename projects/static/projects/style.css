@@ -23,7 +23,7 @@
 	justify-content: center;
 	flex-wrap: wrap;
 	width: 95%;
-	padding: auto;
+	margin: auto;
 	gap: 2vw; /* parent has no defined height so can't use % */
 }
 
@@ -50,7 +50,9 @@
 }
 
 .project-button:hover,
-.project-button:focus-within {
+.project-button:focus-within,
+.tab-button:hover,
+.tab-button:focus-within {
 	transform: scaleY(1.04);
 	transition: transform 400ms;
 }
@@ -70,9 +72,14 @@
 	text-align: center;
 }
 
-.project-text {
+.project-summary {
 	width: 90%;
 	text-align: center;
+}
+
+
+.project-text {
+	width: 90%;
 }
 
 .tab-text {
@@ -84,9 +91,10 @@
 .background-overlay {
 	width: 100%; /* Full width (cover the whole page) */
 	height: 100%; /* Full height (cover the whole page) */
+	background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
 	overflow-y: auto;
 	/* Overwriting defaults */
-	max-width: 100%
+	max-width: 100%;
 	max-height: 100%;
 	border: none;
 }
@@ -102,6 +110,8 @@
 	background-color: lightcoral;
 	top: 5%;
 	left: 5%;
+	padding-top: 10px;
+	padding-bottom: 10px;
 }
 
 .project-box-overlay:hover,
@@ -112,10 +122,10 @@
 
 .exit-button {
 	justify-self: right;
-	padding-top: 10px;
-	padding-bottom: 10px;
 	margin-left: 85%; /* margin so area is not clickable */
+	margin-bottom: 10px;
 	cursor: pointer;
+	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
 .top-row {
