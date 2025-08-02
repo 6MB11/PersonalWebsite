@@ -23,57 +23,59 @@
     <img id="header-box-image" src="{% static 'personal_site/portrait.webp' %}" alt="Self-portrait">
   </header>
 
-  <main class="projects-tabs">
+  <ul class="projects-tabs">
 
     {% for project in projects %}
-
-    <article class="project-button" id="project-button:{{project.slug}}">
+    <li class="project-button" id="project-button:{{project.slug}}">
       <h2 class="project-title" id="project-title:{{project.slug}}">{{project.title}}</h2>
       <img class="project-image" id="project-image:{{project.slug}}" src="{{ project.image.url }}" alt="{{project.image_text}}">
       <p class="project-summary" id="project-summary:{{project.slug}}">{{project.summary}}</p>
       <button type="button" class="hidden-button">See more details</button>
-    </article>
+    </li>
+    {% endfor %}
+    
+  </ul>
 
-    <dialog class="background-overlay" id="background-overlay:{{project.slug}}" onclick="off(event)">
-      <article class="project-box-overlay">
-        <button class="exit-button" id="exit-button:{{project.slug}}" onclick="off(event)" aria-label="Close dialog.">&#x2716;</button>
-        <section class="top-row">
-          <h2 class="project-title-overlay">{{project.title}}</h2>
-          <img class="project-image" src="{{ project.image.url }}" alt="{{project.image_text}}">
+  {% for project in projects %}
+  
+  <dialog class="background-overlay" id="background-overlay:{{project.slug}}" onclick="off(event)">
+    <article class="project-box-overlay">
+      <button class="exit-button" id="exit-button:{{project.slug}}" onclick="off(event)" aria-label="Close dialog.">&#x2716;</button>
+      <section class="top-row">
+        <h2 class="project-title-overlay">{{project.title}}</h2>
+        <img class="project-image" src="{{ project.image.url }}" alt="{{project.image_text}}">
+      </section>
+
+      <!--Sections should have headers, this doesn't-->
+      <div class="projects-tabs" role="tablist">
+
+        {% for tab in project.tab_set.all %}
+        <section class="tab-button" role="tab" aria-controls="tab-text:{{tab.id}}" id="tab-button:{{tab.id}}">
+          <h3 id="h3:{{tab.id}}">{{tab.title}}</h3>
+          <button class="hidden-button">See more details</button>
         </section>
-
-        <!--Sections should have headers, this doesn't-->
-        <div class="projects-tabs" role="tablist">
-
-          {% for tab in project.tab_set.all %}
-          <section class="tab-button" role="tab" aria-controls="tab-text:{{tab.id}}" id="tab-button:{{tab.id}}">
-            <h3 id="h3:{{tab.id}}">{{tab.title}}</h3>
-            <button class="hidden-button">See more details</button>
-          </section>
-          {% endfor %}
-
-        </div>
-
-        <!--Accessibility https://www.reddit.com/r/accessibility/comments/1awwiic/comment/krkylp9-->
-        <!--Need tab index to be able to move focus-->
-        <aside class="tab-text" role="tabpanel" id="tab-text:{{tab.id}}" tabindex="0">
-          {{tab.text|safe}}
-        </aside>
         {% endfor %}
 
-        <!--Using project-text for when there are no tabs-->
-        {% if project.tab_set.all == null %}
-        <div class="project-text">
-          {{project.text|safe}}
-        </div>
-        {% endif %}
+      </div>
 
-      </article>
-    </dialog>
+      <!--Accessibility https://www.reddit.com/r/accessibility/comments/1awwiic/comment/krkylp9-->
+      <!--Need tab index to be able to move focus-->
+      <aside class="tab-text" role="tabpanel" id="tab-text:{{tab.id}}" tabindex="0">
+        {{tab.text|safe}}
+      </aside>
+      {% endfor %}
 
-    {% endfor %}
+      <!--Using project-text for when there are no tabs-->
+      {% if project.tab_set.all == null %}
+      <div class="project-text">
+        {{project.text|safe}}
+      </div>
+      {% endif %}
 
-  </main>
+    </article>
+  </dialog>
+
+  {% endfor %}
 
   <footer id="footer-box">
     {% for external_site in external_sites %}
