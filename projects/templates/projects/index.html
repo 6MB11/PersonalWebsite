@@ -28,7 +28,8 @@
     {% for project in projects %}
     <li class="project-button" id="project-button:{{project.slug}}">
       <h2 class="project-title" id="project-title:{{project.slug}}">{{project.title}}</h2>
-      <img class="project-image" id="project-image:{{project.slug}}" src="{{ project.image.url }}" alt="{{project.image_text}}">
+      <!--Set fetch prio per Google Lighthouse testing-->
+      <img class="project-image" id="project-image:{{project.slug}}" src="{{ project.image.url }}" alt="{{project.image_text}}" fetchpriority="high">
       <p class="project-summary" id="project-summary:{{project.slug}}">{{project.summary}}</p>
       <button type="button" class="hidden-button">See more details</button>
     </li>
@@ -60,6 +61,7 @@
 
       <!--Accessibility https://www.reddit.com/r/accessibility/comments/1awwiic/comment/krkylp9-->
       <!--Need tab index to be able to move focus-->
+      {% for tab in project.tab_set.all %}
       <aside class="tab-text" role="tabpanel" id="tab-text:{{tab.id}}" tabindex="0">
         {{tab.text|safe}}
       </aside>
