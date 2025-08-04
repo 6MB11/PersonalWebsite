@@ -52,7 +52,9 @@
 .project-button:hover,
 .project-button:focus-within,
 .tab-button:hover,
-.tab-button:focus-within {
+.tab-button:focus-within
+.footer-box-sub:hover,
+.footer-box-sub:focus-within {
 	transform: scaleY(1.04);
 	transition: transform 400ms;
 }

@@ -31,14 +31,14 @@
       <!--Set fetch prio per Google Lighthouse testing-->
       <img class="project-image" id="project-image:{{project.slug}}" src="{{ project.image.url }}" alt="{{project.image_text}}" fetchpriority="high">
       <p class="project-summary" id="project-summary:{{project.slug}}">{{project.summary}}</p>
-      <button type="button" class="hidden-button">See more details</button>
+      <button type="button" class="hidden-button"></button>
     </li>
     {% endfor %}
-    
+
   </ul>
 
   {% for project in projects %}
-  
+
   <dialog class="background-overlay" id="background-overlay:{{project.slug}}" onclick="off(event)">
     <article class="project-box-overlay">
       <button class="exit-button" id="exit-button:{{project.slug}}" onclick="off(event)" aria-label="Close dialog.">&#x2716;</button>
@@ -53,7 +53,7 @@
         {% for tab in project.tab_set.all %}
         <section class="tab-button" role="tab" aria-controls="tab-text:{{tab.id}}" id="tab-button:{{tab.id}}">
           <h3 id="h3:{{tab.id}}">{{tab.title}}</h3>
-          <button class="hidden-button">See more details</button>
+          <button class="hidden-button"></button>
         </section>
         {% endfor %}
 
@@ -79,13 +79,28 @@
 
   {% endfor %}
 
-  <footer id="footer-box">
-    {% for external_site in external_sites %}
-    <a id="footer-box-sub" href="{{ external_site.url }}">
-      <img src="{{ external_site.image.url }}" />
-    </a>
-    {% endfor %}
-  </footer>
+	<ul id="footer-box">
+
+		{% for external_site in external_sites %}
+		<!--image_text is e.g. "email", "LinkedIn", etc.-->
+		<li id="footer-box-sub:{{external_site.image_text}}" href="{{ external_site.url }}">
+			<img src="{{ external_site.image.url }}" alt="{{ external_site.image_text }}" />
+		</li>
+		{% endfor %}
+
+		<li id="footer-box-sub:resume">
+			<img src="{% static 'personal_site/resume.webp' %}" alt="Resume." />
+			<button type="button" class="hidden-button"></button>
+		</li>
+
+	</ul>
+
+  <dialog class="background-overlay" id="background-overlay:resume" onclick="off(event)">
+    <article class="project-box-overlay">
+      <button class="exit-button" id="exit-button:resume" onclick="off(event)" aria-label="Close dialog.">&#x2716;</button>
+      <embed sandbox="allow-presentation allow-scripts allow-same-origin" src="{% static 'personal_site/resume.pdf' %}" style="aspect-ratio:11/8.5" title="INSERT">
+    </article>
+  </dialog>
 
   <script src="{% static 'projects/main.js' %}"></script>
 

@@ -40,6 +40,7 @@ class Tab(models.Model):
 
 class ExternalSite(models.Model):
     image = models.ImageField(upload_to="external_sites")
+    image_text = models.TextField()
     url = models.URLField()
     order = models.SmallIntegerField(default=0)
 
