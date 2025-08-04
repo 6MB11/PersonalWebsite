@@ -15,6 +15,7 @@ function onPageLoad() {
 
 /* Project functions
 Cancel button closes the dialog box */
+
 const exitButton = document.querySelectorAll('.exit-button');
 exitButton.forEach(element => {
   element.addEventListener("click", () => {
@@ -87,7 +88,18 @@ function onTab(e) {
   // Do not move focus https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles/tabpanel_role
 }
 
+// Resume functions
+
+const resumeButton = elementFromId('footer-box-sub:resume');
+resumeButton.style.cursor = "pointer" // This is done in JS as if user has JS disabled, button wouldn't work so wouldn't make sense to change cursor
+const dialog = elementFromId("background-overlay:" + getSecondPart(resumeButton.id))
+resumeButton.addEventListener("click", () => {
+  dialog.showModal();
+  document.body.style.overflow = "hidden";
+});
+
 // Helper functions
+
 function elementFromId(idName) {
   const element = document.getElementById(idName);
   return element;

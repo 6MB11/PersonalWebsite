@@ -23,6 +23,7 @@
     <img id="header-box-image" src="{% static 'personal_site/portrait.webp' %}" alt="Self-portrait">
   </header>
 
+  <!--Lists are used as screen readers will read out "1 of 12", "2 of 12", etc.-->
   <ul class="projects-tabs">
 
     {% for project in projects %}
@@ -42,10 +43,10 @@
   <dialog class="background-overlay" id="background-overlay:{{project.slug}}" onclick="off(event)">
     <article class="project-box-overlay">
       <button class="exit-button" id="exit-button:{{project.slug}}" onclick="off(event)" aria-label="Close dialog.">&#x2716;</button>
-      <section class="top-row">
+      <header class="top-row">
         <h2 class="project-title-overlay">{{project.title}}</h2>
-        <img class="project-image" src="{{ project.image.url }}" alt="{{project.image_text}}">
-      </section>
+        <img class="project-image-overlay" src="{{ project.image.url }}" alt="{{project.image_text}}">
+      </header>
 
       <!--Sections should have headers, this doesn't-->
       <div class="projects-tabs" role="tablist">
@@ -83,13 +84,13 @@
 
 		{% for external_site in external_sites %}
 		<!--image_text is e.g. "email", "LinkedIn", etc.-->
-		<li id="footer-box-sub:{{external_site.image_text}}" href="{{ external_site.url }}">
-			<img src="{{ external_site.image.url }}" alt="{{ external_site.image_text }}" />
+		<li class="footer-box-sub" id="footer-box-sub:{{external_site.image_text}}" href="{{ external_site.url }}">
+			<img class="footer-box-sub-image" src="{{ external_site.image.url }}" alt="{{ external_site.image_text }}" />
 		</li>
 		{% endfor %}
 
-		<li id="footer-box-sub:resume">
-			<img src="{% static 'personal_site/resume.webp' %}" alt="Resume." />
+		<li class="footer-box-sub" id="footer-box-sub:resume">
+			<img class="footer-box-sub-image" src="{% static 'personal_site/resume.webp' %}" alt="Resume." />
 			<button type="button" class="hidden-button"></button>
 		</li>
 
@@ -98,7 +99,8 @@
   <dialog class="background-overlay" id="background-overlay:resume" onclick="off(event)">
     <article class="project-box-overlay">
       <button class="exit-button" id="exit-button:resume" onclick="off(event)" aria-label="Close dialog.">&#x2716;</button>
-      <embed sandbox="allow-presentation allow-scripts allow-same-origin" src="{% static 'personal_site/resume.pdf' %}" style="aspect-ratio:11/8.5" title="INSERT">
+      <!--FitH keeps PDF properly sized for container-->
+      <embed sandbox="allow-presentation allow-scripts allow-same-origin" src="{% static 'personal_site/resume.pdf#view=FitH' %}" style="aspect-ratio:8.5/11" title="Resume">
     </article>
   </dialog>
 

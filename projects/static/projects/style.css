@@ -24,11 +24,11 @@
 	flex-wrap: wrap;
 	width: 95%;
 	margin: auto;
+	padding-left: 0;
 	gap: 2vw; /* parent has no defined height so can't use % */
 }
 
 .project-button {
-	position: relative;
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
@@ -39,7 +39,6 @@
 }
 
 .tab-button {
-	position: relative;
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
@@ -52,7 +51,7 @@
 .project-button:hover,
 .project-button:focus-within,
 .tab-button:hover,
-.tab-button:focus-within
+.tab-button:focus-within,
 .footer-box-sub:hover,
 .footer-box-sub:focus-within {
 	transform: scaleY(1.04);
@@ -66,19 +65,23 @@
 
 .project-image {
 	width: 90%;
-	max-height: 250px;
 	max-width: 600px;
+	max-height: 250px;
 }
 
 .project-title-overlay {
 	text-align: center;
 }
 
+.project-image-overlay {
+	max-width: 600px;
+	max-height: 250px;
+}
+
 .project-summary {
 	width: 90%;
 	text-align: center;
 }
-
 
 .project-text {
 	width: 90%;
@@ -145,10 +148,18 @@
 	padding-top: 50px;
 	padding-left: 20%;
 	padding-right: 20%;
+	gap: 10px;
+	list-style-type: none;
 }
 
-#footer-box-sub {
+.footer-box-sub {
 	padding: 10px;
+	border-radius: 50%;
+	background-color: lightcoral;
+}
+
+.footer-box-sub-image {
+	max-width: none;
 }
 
 button {
@@ -171,12 +182,11 @@ p {
 	font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
-img {
+embed,
+img,
+video {
+	max-width: 90%; /* since containers are curved */
 	object-fit: contain;
-}
-
-ul {
-	padding: 0;
 }
 
 body {
