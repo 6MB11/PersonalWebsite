@@ -132,7 +132,7 @@ STATICFILES_DIRS = [
 #https://www.pycodemates.com/2022/03/integrate-ckeditor-to-django-admin-and-form-fields.html
 
 #ckeditor upload path
-CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_UPLOAD_PATH = "images/"
 
 #partially based on https://stackoverflow.com/a/46287523
 CKEDITOR_CONFIGS = {
