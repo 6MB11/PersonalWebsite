@@ -1,9 +1,10 @@
 from django.shortcuts import render
 from .models import Project, ExternalSite
+from django.views.decorators.gzip import gzip_page
 
 # Create your views here.
 
-
+@gzip_page # Text compression
 def home(request, slug=None):
     projects = Project.objects.all()
     external_sites = ExternalSite.objects.all()

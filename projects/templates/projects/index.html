@@ -10,7 +10,7 @@
   <title>Marko Buha</title>
   <link rel="stylesheet" href="{% static 'projects/style.css' %}">
   <link rel="stylesheet" href="{% static 'personal_site/normalize.css' %}">
-  <link rel="shortcut icon" type="image/png" href="{% static 'personal_site/personal_site.webp' %}">
+  <link rel="shortcut icon" type="image/webp" href="{% static 'personal_site/personal_site.webp' %}">
 </head>
 
 <body>
@@ -20,7 +20,9 @@
       <h1>Marko Buha</h1>
       <p>Software Engineering Master's student with an array of experiences in embedded software development</p>
     </section>
-    <img id="header-box-image" src="{% static 'personal_site/portrait.webp' %}" alt="Self-portrait">
+    <!--The style prevents a layout shift in the projects-tabs ul-->
+    <!--Set fetch prio on non-dialog content per Google Lighthouse testing-->
+    <img id="header-box-image" src="{% static 'personal_site/portrait.webp' %}" alt="Self-portrait" fetchpriority="high" style="aspect-ratio:204/250">
   </header>
 
   <!--Lists are used as screen readers will read out "1 of 12", "2 of 12", etc.-->
@@ -29,7 +31,6 @@
     {% for project in projects %}
     <li class="project-button" id="project-button:{{project.slug}}">
       <h2 class="project-title" id="project-title:{{project.slug}}">{{project.title}}</h2>
-      <!--Set fetch prio per Google Lighthouse testing-->
       <img class="project-image" id="project-image:{{project.slug}}" src="{{ project.image.url }}" alt="{{project.image_text}}" fetchpriority="high">
       <p class="project-summary" id="project-summary:{{project.slug}}">{{project.summary}}</p>
       <button type="button" class="hidden-button"></button>
@@ -85,12 +86,12 @@
 		{% for external_site in external_sites %}
 		<!--image_text is e.g. "email", "LinkedIn", etc.-->
 		<li class="footer-box-sub" id="footer-box-sub:{{external_site.image_text}}" href="{{ external_site.url }}">
-			<img class="footer-box-sub-image" src="{{ external_site.image.url }}" alt="{{ external_site.image_text }}" />
+			<img class="footer-box-sub-image" src="{{ external_site.image.url }}" alt="{{ external_site.image_text }}" fetchpriority="high" />
 		</li>
 		{% endfor %}
 
 		<li class="footer-box-sub" id="footer-box-sub:resume">
-			<img class="footer-box-sub-image" src="{% static 'personal_site/resume.webp' %}" alt="Resume." />
+			<img class="footer-box-sub-image" src="{% static 'personal_site/resume.webp' %}" alt="Resume." fetchpriority="high" />
 			<button type="button" class="hidden-button"></button>
 		</li>
 
