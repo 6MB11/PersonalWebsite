@@ -63,6 +63,7 @@ parts/
 sdist/ 
 var/ 
 wheels/ 
+*.whl
 *.egg-info/ 
 .installed.cfg 
 *.egg 
@@ -137,6 +138,7 @@ GitHub.sublime-settings
 !.vscode/extensions.json 
 .history
 
+# Visual Studio #
 .vs/*
 bin/*
 obj/*
