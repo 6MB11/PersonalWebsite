@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for personal-site-blue-sun-1114 on 2025-08-07T18:33:34-04:00
+# fly.toml app configuration file generated for personal-site-spring-flower-608 on 2025-08-07T18:51:26-04:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'personal-site-blue-sun-1114'
+app = 'personal-site-spring-flower-608'
 primary_region = 'yyz'
 console_command = '/code/manage.py shell'
 

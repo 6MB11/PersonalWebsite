@@ -126,7 +126,7 @@ STATIC_URL = 'static/'
 MEDIA_URL = 'media/'
 
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    BASE_DIR / "staticfiles",
 ]
 
 #https://www.pycodemates.com/2022/03/integrate-ckeditor-to-django-admin-and-form-fields.html
