@@ -122,7 +122,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-# URL where files will be served from (e.g. static.markobuha.ca)
+# URL where files will be served from
 STATIC_URL = 'static/'
 MEDIA_URL = 'media/'
 
