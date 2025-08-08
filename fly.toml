@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for personal-site-lingering-frost-3464 on 2025-08-07T19:22:35-04:00
+# fly.toml app configuration file generated for personal-site-aged-thunder-6698 on 2025-08-07T20:24:51-04:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'personal-site-lingering-frost-3464'
+app = 'personal-site-aged-thunder-6698'
 primary_region = 'yyz'
 console_command = '/code/manage.py shell'
 
