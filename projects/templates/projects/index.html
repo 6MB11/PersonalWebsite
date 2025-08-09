@@ -20,9 +20,9 @@
       <h1>Marko Buha</h1>
       <p>Software Engineering Master's student with an array of experiences in embedded software development</p>
     </section>
-    <!--The style prevents a layout shift in the projects-tabs ul-->
+    <!-- https://www.aleksandrhovhannisyan.com/blog/setting-width-and-height-on-images -->
     <!--Set fetch prio on non-dialog content per Google Lighthouse testing-->
-    <img id="header-box-image" src="{% static 'personal_site/portrait.webp' %}" alt="Self-portrait" fetchpriority="high" style="aspect-ratio:204/250">
+    <img id="header-box-image" src="{% static 'personal_site/portrait.webp' %}" alt="Self-portrait" fetchpriority="high" width="204" height="250">
   </header>
 
   <!--Lists are used as screen readers will read out "1 of 12", "2 of 12", etc.-->
@@ -86,14 +86,16 @@
 		{% for external_site in external_sites %}
 		<!--image_text is e.g. "email", "LinkedIn", etc.-->
 		<li class="footer-box-sub" id="footer-box-sub:{{external_site.image_text}}" href="{{ external_site.url }}">
-			<img class="footer-box-sub-image" src="{{ external_site.image.url }}" alt="{{ external_site.image_text }}" fetchpriority="high" />
+			<img class="footer-box-sub-image" src="{{ external_site.image.url }}" alt="{{ external_site.image_text }}" fetchpriority="high" width="40" height="40">
 		</li>
 		{% endfor %}
 
-		<li class="footer-box-sub" id="footer-box-sub:resume">
-			<img class="footer-box-sub-image" src="{% static 'personal_site/resume.webp' %}" alt="Resume." fetchpriority="high" />
-			<button type="button" class="hidden-button"></button>
-		</li>
+    <!--resume-->
+    <li class="footer-box-sub" id="footer-box-sub:resume">
+      <!--64 x 64 gets a Lighthouse warning expecting a bigger size-->
+      <img class="footer-box-sub-image" src="{% static 'personal_site/resume.webp' %}" alt="Resume." fetchpriority="high" width="40" height="40">
+      <button type="button" class="hidden-button"></button>
+    </li>
 
 	</ul>
 
