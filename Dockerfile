@@ -22,9 +22,6 @@ RUN set -ex && \
     rm -rf /root/.cache/
 COPY . /code
 
-# Set DATABASE_URL for building purposes
-ENV DATABASE_URL "sqlite://:memory:"  # <- Updated
-
 RUN python manage.py collectstatic --noinput
 
 EXPOSE 8000
