@@ -1,6 +1,7 @@
 # See https://fly.io/docs/app-guides/continuous-deployment-with-github-actions/
 
 name: Fly Deploy
+
 on:
   push:
     branches: [ "main" ]
@@ -15,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: fly deploy -e DATABASE_URL=ASDF
+      - run: flyctl deploy --build-secret DATABASE_URL=${{ secrets.DATABASE_URL }}
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 
