@@ -13,7 +13,6 @@ jobs:
   
     name: Fly deploy app
     runs-on: ubuntu-latest
-    concurrency: deploy-lighthouse-group # optional: ensure only one action runs at a time
     
     steps:
       - uses: actions/checkout@v4
@@ -26,7 +25,6 @@ jobs:
   
     name: Lighthouse test app
     runs-on: ubuntu-latest
-    concurrency: deploy-lighthouse-group # optional: ensure only one action runs at a time
 
     steps:
     - uses: actions/checkout@master
