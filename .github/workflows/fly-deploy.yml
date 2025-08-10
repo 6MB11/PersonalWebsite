@@ -1,7 +1,6 @@
 # See https://fly.io/docs/app-guides/continuous-deployment-with-github-actions/
 
 name: Fly Deploy
-
 on:
   push:
     branches: [ "main" ]
@@ -16,20 +15,26 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl deploy --build-secret DATABASE_URL=${{ secrets.DATABASE_URL }}
+      - run: fly deploy -e DATABASE_URL=ASDF
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
-          
-  audit:
-    name: Audit app
+
+  lighthouse-check:
     runs-on: ubuntu-latest
     steps:
-    - name: Audit live URL
-      uses: jakejarvis/lighthouse-action@master
+    - uses: actions/checkout@master
+    - run: npm install
+    - name: Run Lighthouse
+      uses: foo-software/lighthouse-check-action@master
+      id: lighthouseCheck
       with:
-        url: 'https://personal-site-quiet-darkness-1604.fly.dev'
-    - name: Upload results as an artifact
-      uses: actions/upload-artifact@master
+        urls: 'https://personal-site-quiet-darkness-1604.fly.dev'
+    - name: Handle Lighthouse Check results
+      uses: ./
       with:
-        name: report
-        path: './report'
+        lighthouseCheckResults: ${{ steps.lighthouseCheck.outputs.lighthouseCheckResults }}
+        minAccessibilityScore: "100"
+        minBestPracticesScore: "82"
+        minPerformanceScore: "100"
+        minProgressiveWebAppScore: "0"
+        minSeoScore: "100"
