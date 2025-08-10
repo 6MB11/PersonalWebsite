@@ -22,6 +22,9 @@ RUN set -ex && \
     rm -rf /root/.cache/
 COPY . /code
 
+RUN --mount=type=secret,id=DATABASE_URL \
+    DATABASE_URL="$(cat /run/secrets/DATABASE_URL)"
+
 RUN python manage.py collectstatic --noinput
 
 EXPOSE 8000
