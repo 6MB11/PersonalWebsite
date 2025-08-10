@@ -1,10 +1,10 @@
-# fly.toml app configuration file generated for personal-site-quiet-darkness-1604 on 2025-08-09T22:46:08-04:00
+# fly.toml app configuration file generated for personal-site-mb on 2025-08-10T14:57:58-04:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'personal-site-quiet-darkness-1604'
-primary_region = 'iad'
+app = 'personal-site-mb'
+primary_region = 'yyz'
 console_command = '/code/manage.py shell'
 
 [build]
@@ -24,9 +24,9 @@ console_command = '/code/manage.py shell'
   processes = ['app']
 
 [[vm]]
-  cpu_kind = "shared"
+  memory = '1gb'
+  cpu_kind = 'shared'
   cpus = 1
-  memory_mb = 256
 
 [[statics]]
   guest_path = '/code/static'
