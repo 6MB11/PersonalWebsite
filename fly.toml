@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for personal-site-silent-silence-363 on 2025-08-08T21:30:29-04:00
+# fly.toml app configuration file generated for personal-site-twilight-wave-2655 on 2025-08-09T20:07:57-04:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'personal-site-silent-silence-363'
+app = 'personal-site-twilight-wave-2655'
 primary_region = 'iad'
 console_command = '/code/manage.py shell'
 
