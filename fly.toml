@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for personal-site-twilight-wave-2655 on 2025-08-09T20:07:57-04:00
+# fly.toml app configuration file generated for personal-site-aged-glitter-7640 on 2025-08-09T21:58:49-04:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'personal-site-twilight-wave-2655'
+app = 'personal-site-aged-glitter-7640'
 primary_region = 'iad'
 console_command = '/code/manage.py shell'
 

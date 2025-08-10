@@ -36,9 +36,9 @@ SECRET_KEY = env.str('SECRET_KEY', default=get_random_secret_key())  # <-- Updat
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')  # <-- Updated!
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'personal-site-twilight-wave-2655.fly.dev', '.markobuha.ca']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'personal-site-aged-glitter-7640.fly.dev', '.markobuha.ca']
 
-CSRF_TRUSTED_ORIGINS = ['https://personal-site-twilight-wave-2655.fly.dev', 'https://*.markobuha.ca']  # <-- Updated!
+CSRF_TRUSTED_ORIGINS = ['https://personal-site-aged-glitter-7640.fly.dev', 'https://*.markobuha.ca']  # <-- Updated!
 
 
 # Application definition
