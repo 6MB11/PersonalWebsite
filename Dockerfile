@@ -22,8 +22,8 @@ RUN set -ex && \
     rm -rf /root/.cache/
 COPY . /code
 
-ARG DATABASE_URL
-ENV DATABASE_URL="${{ secrets.DATABASE_URL }}"
+# Set DATABASE_URL for building purposes
+ENV DATABASE_URL "sqlite://:memory:"  # <- Updated
 
 RUN python manage.py collectstatic --noinput
 
