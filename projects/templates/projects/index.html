@@ -109,7 +109,8 @@
 	<dialog class="background-overlay" id="background-overlay:resume" onclick="off(event)">
 		<article class="project-box-overlay">
 			<button class="exit-button" id="exit-button:resume" onclick="off(event)" aria-label="Close dialog.">&#x2716;</button>
-			<iframe src="{% static 'personal_site/resume.pdf' %}" width="850" style="aspect-ratio:8.5/11" title="Resume"></iframe>
+			<!--8.5x11 and then a bit more for the top bar. Lazy loading as element needs to be visible when loaded to not generate OffsetParent error-->
+			<iframe src="{% static 'pdfjs/web/viewer.html' %}?file={% static 'personal_site/resume.pdf' %}" width="850" style="aspect-ratio:8.5/11.5" title="Resume" loading="lazy"></iframe>
 		</article>
 	</dialog>
 

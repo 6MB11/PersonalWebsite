@@ -145,3 +145,6 @@ bin/*
 obj/*
 *.pyproj*
 *.sln
+
+node_modules
+staticfiles
