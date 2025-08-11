@@ -3,110 +3,118 @@
 <html lang="en-ca">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="description" content="Software Engineering Master's student with an array of experiences in embedded software development">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Marko Buha</title>
-  <link rel="stylesheet" href="{% static 'projects/style.css' %}">
-  <link rel="stylesheet" href="{% static 'personal_site/normalize.css' %}">
-  <link rel="shortcut icon" type="image/webp" href="{% static 'personal_site/personal_site.webp' %}">
+	<meta charset="UTF-8">
+	<meta name="description" content="Software Engineering Master's student with an array of experiences in embedded software development">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Marko Buha</title>
+	<link rel="stylesheet" href="{% static 'projects/critical.css' %}">
+	<link rel="preload" href="{% static 'projects/style.css' %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript>
+		<link rel="stylesheet" href="{% static 'projects/style.css' %}">
+	</noscript>
+	<link rel="preload" href="{% static 'personal_site/normalize.css' %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+	<noscript>
+		<link rel="stylesheet" href="{% static 'personal_site/normalize.css' %}">
+	</noscript>
+	<link rel="shortcut icon" type="image/webp" href="{% static 'personal_site/personal_site.webp' %}">
 </head>
 
 <body>
 
-  <header id="header-box">
-    <section id="header-box-text">
-      <h1>Marko Buha</h1>
-      <p>Software Engineering Master's student with an array of experiences in embedded software development</p>
-    </section>
-    <!-- https://www.aleksandrhovhannisyan.com/blog/setting-width-and-height-on-images -->
-    <!--Set fetch prio on non-dialog content per Google Lighthouse testing-->
-    <img id="header-box-image" src="{% static 'personal_site/portrait.webp' %}" alt="Self-portrait" fetchpriority="high" width="204" height="250">
-  </header>
+	<header id="header-box">
+		<section id="header-box-text">
+			<h1>Marko Buha</h1>
+			<p>Software Engineering Master's student with an array of experiences in embedded software development</p>
+		</section>
+		<!--Width alongside style ensure dimensions are set for images so there is no CLS. Width is de facto a max width-->
+		<!--Set fetch prio on non-dialog content per Google Lighthouse testing-->
+		<img id="header-box-image" src="{% static 'personal_site/portrait.webp' %}" alt="Self-portrait" width="204" style="aspect-ratio:204/250" fetchpriority="high">
+	</header>
 
-  <!--Lists are used as screen readers will read out "1 of 12", "2 of 12", etc.-->
-  <ul class="projects-tabs">
+	<!--Lists are used as screen readers will read out "1 of 12", "2 of 12", etc.-->
+	<ul class="projects-tabs">
 
-    {% for project in projects %}
-    <li class="project-button" id="project-button:{{project.slug}}">
-      <h2 class="project-title" id="project-title:{{project.slug}}">{{project.title}}</h2>
-      <img class="project-image" id="project-image:{{project.slug}}" src="{{ project.image.url }}" alt="{{project.image_text}}" fetchpriority="high">
-      <p class="project-summary" id="project-summary:{{project.slug}}">{{project.summary}}</p>
-      <button type="button" class="hidden-button"></button>
-    </li>
-    {% endfor %}
+		{% for project in projects %}
+		<li class="project-button" id="project-button:{{project.slug}}">
+			<h2 class="project-title" id="project-title:{{project.slug}}">{{project.title}}</h2>
+			<img class="project-image" id="project-image:{{project.slug}}" src="{{ project.image.url }}" alt="{{project.image_text}}" fetchpriority="high">
+			<p class="project-summary" id="project-summary:{{project.slug}}">{{project.summary}}</p>
+			<button type="button" class="hidden-button"></button>
+		</li>
+		{% endfor %}
 
-  </ul>
+	</ul>
 
-  {% for project in projects %}
+	{% for project in projects %}
 
-  <dialog class="background-overlay" id="background-overlay:{{project.slug}}" onclick="off(event)">
-    <article class="project-box-overlay">
-      <button class="exit-button" id="exit-button:{{project.slug}}" onclick="off(event)" aria-label="Close dialog.">&#x2716;</button>
-      <header class="top-row">
-        <h2 class="project-title-overlay">{{project.title}}</h2>
-        <img class="project-image-overlay" src="{{ project.image.url }}" alt="{{project.image_text}}">
-      </header>
+	<dialog class="background-overlay" id="background-overlay:{{project.slug}}" onclick="off(event)">
+		<article class="project-box-overlay">
+			<button class="exit-button" id="exit-button:{{project.slug}}" onclick="off(event)" aria-label="Close dialog.">&#x2716;</button>
+			<header class="top-row">
+				<h2 class="project-title-overlay">{{project.title}}</h2>
+				<img class="project-image-overlay" src="{{ project.image.url }}" alt="{{project.image_text}}">
+			</header>
 
-      <!--Sections should have headers, this doesn't-->
-      <div class="projects-tabs" role="tablist">
+			<!--Sections should have headers, this doesn't-->
+			<div class="projects-tabs" role="tablist">
 
-        {% for tab in project.tab_set.all %}
-        <section class="tab-button" role="tab" aria-controls="tab-text:{{tab.id}}" id="tab-button:{{tab.id}}">
-          <h3 id="h3:{{tab.id}}">{{tab.title}}</h3>
-          <button class="hidden-button"></button>
-        </section>
-        {% endfor %}
+				{% for tab in project.tab_set.all %}
+				<section class="tab-button" role="tab" aria-controls="tab-text:{{tab.id}}" id="tab-button:{{tab.id}}">
+					<h3 id="h3:{{tab.id}}">{{tab.title}}</h3>
+					<button class="hidden-button"></button>
+				</section>
+				{% endfor %}
 
-      </div>
+			</div>
 
-      <!--Accessibility https://www.reddit.com/r/accessibility/comments/1awwiic/comment/krkylp9-->
-      <!--Need tab index to be able to move focus-->
-      {% for tab in project.tab_set.all %}
-      <aside class="tab-text" role="tabpanel" id="tab-text:{{tab.id}}" tabindex="0">
-        {{tab.text|safe}}
-      </aside>
-      {% endfor %}
+			<!--Accessibility https://www.reddit.com/r/accessibility/comments/1awwiic/comment/krkylp9-->
+			<!--Need tab index to be able to move focus-->
+			{% for tab in project.tab_set.all %}
+			<aside class="tab-text" role="tabpanel" id="tab-text:{{tab.id}}" tabindex="0">
+				{{tab.text|safe}}
+			</aside>
+			{% endfor %}
 
-      <!--Using project-text for when there are no tabs-->
-      {% if project.tab_set.all == null %}
-      <div class="project-text">
-        {{project.text|safe}}
-      </div>
-      {% endif %}
+			<!--Using project-text for when there are no tabs-->
+			{% if project.tab_set.all == null %}
+			<div class="project-text">
+				{{project.text|safe}}
+			</div>
+			{% endif %}
 
-    </article>
-  </dialog>
+		</article>
+	</dialog>
 
-  {% endfor %}
+	{% endfor %}
 
 	<ul id="footer-box">
 
 		{% for external_site in external_sites %}
 		<!--image_text is e.g. "email", "LinkedIn", etc.-->
 		<li class="footer-box-sub" id="footer-box-sub:{{external_site.image_text}}" href="{{ external_site.url }}">
-			<img class="footer-box-sub-image" src="{{ external_site.image.url }}" alt="{{ external_site.image_text }}" fetchpriority="high" width="40" height="40">
+			<img class="footer-box-sub-image" src="{{ external_site.image.url }}" alt="{{ external_site.image_text }}" fetchpriority="high" width="40" style="aspect-ratio:1/1">
 		</li>
 		{% endfor %}
 
-    <!--resume-->
-    <li class="footer-box-sub" id="footer-box-sub:resume">
-      <!--64 x 64 gets a Lighthouse warning expecting a bigger size-->
-      <img class="footer-box-sub-image" src="{% static 'personal_site/resume.webp' %}" alt="Resume." fetchpriority="high" width="40" height="40">
-      <button type="button" class="hidden-button"></button>
-    </li>
+		<!--resume-->
+		<li class="footer-box-sub" id="footer-box-sub:resume">
+			<!--64 x 64 gets a Lighthouse warning expecting a bigger size-->
+			<img class="footer-box-sub-image" src="{% static 'personal_site/resume.webp' %}" alt="Resume." fetchpriority="high" width="40" style="aspect-ratio:1/1">
+			<button type="button" class="hidden-button"></button>
+		</li>
 
 	</ul>
 
-  <dialog class="background-overlay" id="background-overlay:resume" onclick="off(event)">
-    <article class="project-box-overlay">
-      <button class="exit-button" id="exit-button:resume" onclick="off(event)" aria-label="Close dialog.">&#x2716;</button>
-      <iframe src="{% static 'personal_site/resume.pdf' %}" width="850" style="aspect-ratio:8.5/11" title="Resume"></iframe>
-    </article>
-  </dialog>
+	<dialog class="background-overlay" id="background-overlay:resume" onclick="off(event)">
+		<article class="project-box-overlay">
+			<button class="exit-button" id="exit-button:resume" onclick="off(event)" aria-label="Close dialog.">&#x2716;</button>
+			<iframe src="{% static 'personal_site/resume.pdf' %}" width="850" style="aspect-ratio:8.5/11" title="Resume"></iframe>
+		</article>
+	</dialog>
 
-  <script src="{% static 'projects/main.js' %}"></script>
+	<script src="{% static 'projects/critical.js' %}"></script>
+	<script defer src="{% static 'projects/main.js' %}"></script>
 
 </body>
 
