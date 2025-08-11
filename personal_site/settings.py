@@ -95,6 +95,7 @@ WSGI_APPLICATION = 'personal_site.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# In prod, fly.io will inject a DATABASE_URL to override the one defined in the .env file
 DATABASES = {
     'default': dj_database_url.config(conn_max_age=600, ssl_require=False)
 }
