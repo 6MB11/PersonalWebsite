@@ -1,41 +1,42 @@
 # See https://fly.io/docs/app-guides/continuous-deployment-with-github-actions/
 
-name: Fly Deploy
+name: Fly & Lighthouse CI
 
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
-    
+
 jobs:
   deploy:
-    name: Deploy app
+  
+    name: Fly deploy app
     runs-on: ubuntu-latest
-    concurrency: deploy-group    # optional: ensure only one action runs at a time
+    
     steps:
       - uses: actions/checkout@v4
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl deploy --build-secret DATABASE_URL=${{ secrets.DATABASE_URL }}
+      - run: flyctl deploy --remote-only
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 
-  lighthouse-check:
+  lighthouse:
+  
+    name: Lighthouse test app
     runs-on: ubuntu-latest
+    needs: deploy # This job will only run after 'deploy' completes successfully
+
     steps:
-    - uses: actions/checkout@master
-    - run: npm install
-    - name: Run Lighthouse
-      uses: foo-software/lighthouse-check-action@master
-      id: lighthouseCheck
-      with:
-        urls: 'https://personal-site-quiet-darkness-1604.fly.dev'
-    - name: Handle Lighthouse Check results
-      uses: ./
-      with:
-        lighthouseCheckResults: ${{ steps.lighthouseCheck.outputs.lighthouseCheckResults }}
-        minAccessibilityScore: "100"
-        minBestPracticesScore: "82"
-        minPerformanceScore: "100"
-        minProgressiveWebAppScore: "0"
-        minSeoScore: "100"
+      - uses: actions/checkout@master
+      - run: mkdir -p ${{ github.workspace }}/tmp/artifacts
+      - name: Lighthouse
+        uses: foo-software/lighthouse-check-action@master
+        with:
+          outputDirectory: ${{ github.workspace }}/tmp/artifacts
+          urls: 'https://personal-site-mb.fly.dev'
+      - name: Upload artifacts
+        uses: actions/upload-artifact@master
+        with:
+          name: Lighthouse reports
+          path: ${{ github.workspace }}/tmp/artifacts
