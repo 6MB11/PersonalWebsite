@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/6MB11/PersonalWebsite/issues"
   },
-  "homepage": "https://github.com/6MB11/PersonalWebsite#readme"
+  "homepage": "https://github.com/6MB11/PersonalWebsite#readme",
+  "dependencies": {
+    "gulp": "^5.0.1"
+  }
 }
