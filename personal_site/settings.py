@@ -50,10 +50,12 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'whitenoise.runserver_nostatic',  # <-- Updated!
     'django.contrib.staticfiles',
+    'whitenoise.runserver_nostatic',  # <-- Updated!
+    'ckeditor',
+    "imagekit",
+    "lazy_srcset",
     'projects.apps.ProjectsConfig',
-    'ckeditor'
 ]
 
 MIDDLEWARE = [
@@ -211,6 +213,13 @@ CKEDITOR_CONFIGS = {
             'elementspath',
             'codesnippet',
         ]),
+    }
+}
+
+LAZY_SRCSET = {
+    "default": {
+        # breakpoints is the only setting you must define
+        "breakpoints": [1920, 1580, 1280, 1024, 640]
     }
 }
 
