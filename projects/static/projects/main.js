@@ -72,3 +72,9 @@ resumeButton.addEventListener("click", () => {
     document.body.style.overflow = "hidden"
 }
 );
+
+document.addEventListener("touchmove", (e) => {
+  if (e.touches.length > 1) { // Check for multi-touch (pinch)
+    e.preventDefault(); // Prevent default browser zoom
+  }
+}, { passive: false });
