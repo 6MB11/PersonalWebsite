@@ -17,6 +17,7 @@ function elementFromId(e) {
   let t = document.getElementById(e);
   return t
 }
+
 function getSecondPart(e) {
   if (null !== e)
     return e.split(":")[1]

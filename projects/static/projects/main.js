@@ -1,21 +1,4 @@
-const exitButton = document.querySelectorAll(".exit-button");
-exitButton.forEach(e => {
-  e.addEventListener("click", () => {
-    let t = elementFromId("background-overlay:" + getSecondPart(e.id));
-    t.close()
-  }
-  )
-}
-);
 const projectButton = document.querySelectorAll(".project-button");
-
-function off(e) {
-  if (e.target !== e.currentTarget)
-    return;
-  let t = elementFromId("background-overlay:" + getSecondPart(e.target.id));
-  t.close(),
-    document.body.style.overflow = "auto"
-}
 
 projectButton.forEach(e => {
   e.style.cursor = "pointer";
@@ -27,6 +10,13 @@ projectButton.forEach(e => {
   )
 }
 );
+function off(e) {
+  if (e.target !== e.currentTarget)
+    return;
+  let t = elementFromId("background-overlay:" + getSecondPart(e.target.id));
+  t.close(),
+    document.body.style.overflow = "auto"
+}
 
 class Tab {
   constructor() {
@@ -39,6 +29,12 @@ class Tab {
 
 var tab = new Tab;
 const tabButton = document.querySelectorAll(".tab-button");
+
+tabButton.forEach(e => {
+  e.style.cursor = "pointer",
+    e.addEventListener("click", handleClick)
+}
+);
 
 function handleClick(e) {
   let t = window.getSelection().toString();
@@ -59,9 +55,13 @@ function onTab(e) {
   r.style.border = "solid"
 }
 
-tabButton.forEach(e => {
-  e.style.cursor = "pointer",
-    e.addEventListener("click", handleClick)
+const exitButton = document.querySelectorAll(".exit-button");
+exitButton.forEach(e => {
+  e.addEventListener("click", () => {
+    let t = elementFromId("background-overlay:" + getSecondPart(e.id));
+    t.close()
+  }
+  )
 }
 );
 
@@ -77,4 +77,4 @@ document.addEventListener("touchmove", (e) => {
   if (e.touches.length > 1) { // Check for multi-touch (pinch)
     e.preventDefault(); // Prevent default browser zoom
   }
-}, { passive: false });
+}, { passive: false });s

@@ -3,13 +3,12 @@
 	background-color: #fff
 }
 
-.footer-box-sub:focus-within, .footer-box-sub:hover, .project-button:focus-within, .project-button:hover, .tab-button:focus-within, .tab-button:hover {
-	transform: scaleY(1.04);
-	transition: transform .4s
-}
+	.footer-box-sub:focus-within, .footer-box-sub:hover, .project-button:focus-within, .project-button:hover, .tab-button:focus-within, .tab-button:hover {
+		transform: scaleY(1.04);
+		transition: transform .4s
+	}
 
 .project-image-overlay {
-	max-width: 600px;
 	max-height: 250px
 }
 
@@ -33,4 +32,11 @@
 	flex-wrap: wrap;
 	width: 90%;
 	padding-bottom: 1em
+}
+
+.exit-button {
+	justify-self: right;
+	margin-left: 85%;
+	margin-bottom: 10px;
+	cursor: pointer
 }
