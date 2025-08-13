@@ -117,7 +117,7 @@ button {
 
 img, iframe, video {
 	max-width: 90%;
-	max-height: 90vh;
+	max-height: 85vh;
 	/* Override width and height, which is set by lazy_srcset for images and manually for iframes and videos. 
 		 This lets image fit on screen .
 		 https://stackoverflow.com/a/17183996 */

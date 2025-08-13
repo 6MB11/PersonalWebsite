@@ -50,8 +50,8 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
     'whitenoise.runserver_nostatic',  # <-- Updated!
+    'django.contrib.staticfiles',
     'ckeditor',
     "imagekit",
     "lazy_srcset",
@@ -219,7 +219,7 @@ CKEDITOR_CONFIGS = {
 LAZY_SRCSET = {
     "default": {
         # breakpoints is the only setting you must define
-        "breakpoints": [1920, 1580, 1280, 1024, 640]
+        "breakpoints": [1920, 1750, 1580, 1430, 1280, 1156, 1024, 832, 640, 448, 256]
     }
 }
 
