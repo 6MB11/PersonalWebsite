@@ -126,7 +126,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-ca'
 
-TIME_ZONE = 'Canada/Eastern'
+TIME_ZONE = 'America/Toronto'
 
 USE_I18N = True
 
