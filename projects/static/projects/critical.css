@@ -27,6 +27,7 @@
 
 #header-box-image {
 	align-items: center;
+	max-height: 250px;
 }
 
 .projects-tabs {
@@ -83,13 +84,6 @@
 	left: 5%
 }
 
-.exit-button {
-	justify-self: right;
-	margin-left: 85%;
-	margin-bottom: 10px;
-	cursor: pointer
-}
-
 #footer-box {
 	display: flex;
 	flex-wrap: wrap;
@@ -108,7 +102,7 @@
 }
 
 .footer-box-sub-image {
-	max-width: none
+	max-width: 40px
 }
 
 button {
@@ -123,14 +117,15 @@ button {
 
 img, iframe, video {
 	max-width: 90%;
-}
-
-body {
-	background-image: linear-gradient(transparent 0,rgba(240,128,128,.5) 100%);
-	min-height: 100vh;
-	width: calc(100vw - 15px)
+	/* Override width and height, which is set by lazy_srcset for images and manually for iframes and videos. 
+		 This lets image fit on screen .
+		 https://stackoverflow.com/a/17183996 */
+	width: auto;
+	height: auto;
 }
 
 html {
-	color-scheme: light
+	background-image: linear-gradient(transparent 0,rgba(240,128,128,.5) 100%);
+	color-scheme: light;
+	min-height: 100vh
 }
