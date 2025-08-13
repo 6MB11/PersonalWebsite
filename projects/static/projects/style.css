@@ -3,10 +3,10 @@
 	background-color: #fff
 }
 
-	.footer-box-sub:focus-within, .footer-box-sub:hover, .project-button:focus-within, .project-button:hover, .tab-button:focus-within, .tab-button:hover {
-		transform: scaleY(1.04);
-		transition: transform .4s
-	}
+.footer-box-sub:focus-within, .footer-box-sub:hover, .project-button:focus-within, .project-button:hover, .tab-button:focus-within, .tab-button:hover {
+	transform: scaleY(1.04);
+	transition: transform .4s
+}
 
 .project-image-overlay {
 	max-height: 250px
