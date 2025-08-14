@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 # settings.py
 from pathlib import Path
 from django.core.management.utils import get_random_secret_key
-import dj_database_url  # <-- Updated!
+from csp.constants import NONCE, SELF
 import os
 import environ  # <-- Updated!
 
@@ -37,7 +37,7 @@ SECRET_KEY = env.str('SECRET_KEY', default=get_random_secret_key())  # <-- Updat
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')  # <-- Updated!
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'personal-site-mb.fly.dev', '.markobuha.ca']
+ALLOWED_HOSTS = ['localhost', '0.0.0.0', '127.0.0.1', 'personal-site-mb.fly.dev', '.markobuha.ca']
 
 CSRF_TRUSTED_ORIGINS = ['https://personal-site-mb.fly.dev', 'https://*.markobuha.ca']  # <-- Updated!
 
@@ -52,8 +52,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',  # <-- Updated!
     'django.contrib.staticfiles',
+    'ckeditor',
+    "csp",
+    "imagekit",
+    "lazy_srcset",
     'projects.apps.ProjectsConfig',
-    'ckeditor'
 ]
 
 MIDDLEWARE = [
@@ -65,6 +68,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "csp.middleware.CSPMiddleware",
 ]
 
 X_FRAME_OPTIONS = "SAMEORIGIN"
@@ -96,9 +100,9 @@ WSGI_APPLICATION = 'personal_site.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(conn_max_age=600, ssl_require=False)
+    # read os.environ['DATABASE_URL']
+    'default': env.db()  # <-- Updated!
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -122,9 +126,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en-ca'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Toronto'
 
 USE_I18N = True
 
@@ -214,6 +218,13 @@ CKEDITOR_CONFIGS = {
     }
 }
 
+LAZY_SRCSET = {
+    "default": {
+        # breakpoints is the only setting you must define
+        "breakpoints": [1920, 1750, 1580, 1430, 1280, 1156, 1024, 832, 640, 448, 256]
+    }
+}
+
 # Directory where static and media files are collected
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -224,3 +235,18 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CONTENT_SECURITY_POLICY = {
+    "DIRECTIVES": {
+        "default-src": [SELF],
+        "frame-ancestors": [SELF],
+        "form-action": [SELF],
+    },
+}
+
+SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+
+if DEBUG:
+    import mimetypes
+    mimetypes.add_type("application/javascript", ".mjs", True)
