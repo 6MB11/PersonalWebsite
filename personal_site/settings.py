@@ -128,7 +128,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-ca'
 
-TIME_ZONE = 'UTC' # Changing this may cause 500 error when deploying through GitHub Actions
+TIME_ZONE = 'America/Toronto'
 
 USE_I18N = True
 
