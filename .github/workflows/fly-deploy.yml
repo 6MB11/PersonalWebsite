@@ -9,15 +9,14 @@ on:
     branches: [ "main" ]
 
 jobs:
+
   deploy:
-  
-    name: Fly deploy app
+    name: Fly deploy
     runs-on: ubuntu-latest
-    
     steps:
       - uses: actions/checkout@v4
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl deploy --remote-only
+      - run: flyctl deploy --build-secret DATABASE_URL=${{ secrets.DATABASE_URL }}
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 
