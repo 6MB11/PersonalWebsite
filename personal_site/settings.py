@@ -56,6 +56,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',  # <-- Updated!
     'django.contrib.staticfiles',
+    'ckeditor',
+    "csp",
     'projects.apps.ProjectsConfig',
 ]
 
