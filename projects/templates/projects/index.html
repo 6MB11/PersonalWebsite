@@ -1,6 +1,5 @@
 <!doctype html>
 {% load static %}
-{% load lazy_srcset %}
 <html lang="en-ca">
 
 <head>
@@ -20,8 +19,9 @@
 			<h1>Marko Buha</h1>
 			<p>Software Engineering Master's student with an array of experiences in embedded software development</p>
 		</section>
+		<!--Width alongside style ensure dimensions are set for images so there is no CLS. Width is de facto a max width-->
 		<!--Set fetch prio on non-dialog content per Google Lighthouse testing-->
-		<img id="header-box-image" {% srcset 'personal_site/portrait.webp' %} alt="Self-portrait" fetchpriority="high">
+		<img id="header-box-image" src="{% static 'personal_site/portrait.webp' %}" alt="Self-portrait" width="204" style="aspect-ratio:204/250" fetchpriority="high">
 	</header>
 
 	<!--Lists are used as screen readers will read out "1 of 12", "2 of 12", etc.-->
@@ -30,7 +30,7 @@
 		{% for project in projects %}
 		<li class="project-button" id="project-button:{{project.slug}}">
 			<h2 class="project-title" id="project-title:{{project.slug}}">{{project.title}}</h2>
-			<img class="project-image" id="project-image:{{project.slug}}" {% srcset project.image %} alt="{{project.image_text}}" fetchpriority="high">
+			<img class="project-image" id="project-image:{{project.slug}}" src="{{ project.image.url }}" alt="{{project.image_text}}" fetchpriority="high">
 			<p class="project-summary" id="project-summary:{{project.slug}}">{{project.summary}}</p>
 			<button type="button" class="hidden-button"></button>
 		</li>
@@ -45,7 +45,7 @@
 			<button class="exit-button" id="exit-button:{{project.slug}}" aria-label="Close dialog.">&#x2716;</button>
 			<header class="top-row">
 				<h2 class="project-title-overlay">{{project.title}}</h2>
-				<img class="project-image-overlay" {% srcset project.image %} alt="{{project.image_text}}">
+				<img class="project-image-overlay" src="{{ project.image.url }}" alt="{{project.image_text}}">
 			</header>
 
 			<!--Sections should have headers, this doesn't-->
@@ -85,14 +85,14 @@
 		{% for external_site in external_sites %}
 		<!--image_text is e.g. "email", "LinkedIn", etc.-->
 		<li class="footer-box-sub" id="footer-box-sub:{{external_site.image_text}}" href="{{ external_site.url }}">
-			<img class="footer-box-sub-image" {% srcset external_site.image %} alt="{{ external_site.image_text }}" fetchpriority="high">
+			<img class="footer-box-sub-image" src="{{ external_site.image.url }}" alt="{{ external_site.image_text }}" fetchpriority="high" width="40" style="aspect-ratio:1/1">
 		</li>
 		{% endfor %}
 
 		<!--resume-->
 		<li class="footer-box-sub" id="footer-box-sub:resume">
 			<!--64 x 64 gets a Lighthouse warning expecting a bigger size-->
-			<img class="footer-box-sub-image" {% srcset 'personal_site/resume.webp' %} alt="Resume." fetchpriority="high">
+			<img class="footer-box-sub-image" src="{% static 'personal_site/resume.webp' %}" alt="Resume." fetchpriority="high" width="40" style="aspect-ratio:1/1">
 			<button type="button" class="hidden-button"></button>
 		</li>
 
@@ -101,8 +101,8 @@
 	<dialog class="background-overlay" id="background-overlay:resume">
 		<article class="project-box-overlay">
 			<button class="exit-button" id="exit-button:resume" aria-label="Close dialog.">&#x2716;</button>
-			<!--8.5x11. Lazy loading as element needs to be visible when loaded to not generate OffsetParent error-->
-			<iframe src="{% static 'pdfjs/web/viewer.html' %}?file={% static 'personal_site/resume.pdf' %}" title="Resume" loading="lazy"></iframe>
+			<!--8.5x11 and then a bit more for the top bar. Lazy loading as element needs to be visible when loaded to not generate OffsetParent error-->
+			<iframe src="{% static 'pdfjs/web/viewer.html' %}?file={% static 'personal_site/resume.pdf' %}" width="850" style="aspect-ratio:8.5/11.5" title="Resume" loading="lazy"></iframe>
 		</article>
 	</dialog>
 
