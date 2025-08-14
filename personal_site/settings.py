@@ -54,8 +54,10 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',  # <-- Updated!
     'django.contrib.staticfiles',
     'ckeditor',
-    "csp",
-    'projects.apps.ProjectsConfig',
+    'csp',
+    'imagekit',
+    'lazy_srcset',
+    'projects.apps.ProjectsConfig'
 ]
 
 MIDDLEWARE = [
