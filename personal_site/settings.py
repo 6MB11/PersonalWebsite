@@ -14,6 +14,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 from pathlib import Path
 from django.core.management.utils import get_random_secret_key
 from csp.constants import NONCE, SELF
+import dj_database_url  # <-- Updated!
 import os
 import environ  # <-- Updated!
 
@@ -100,9 +101,9 @@ WSGI_APPLICATION = 'personal_site.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    # read os.environ['DATABASE_URL']
-    'default': env.db()  # <-- Updated!
+  'default': dj_database_url.config(conn_max_age=600, ssl_require=False)
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
