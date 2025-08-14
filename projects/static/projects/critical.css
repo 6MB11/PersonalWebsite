@@ -73,15 +73,13 @@
 }
 
 .project-box-overlay {
-	position: absolute;
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
 	width: 90%;
 	border-radius: 5%/50%;
 	background-color: #f08080;
-	top: 5%;
-	left: 5%
+	margin: auto
 }
 
 #footer-box {
@@ -115,7 +113,7 @@ button {
 	display: none
 }
 
-img, iframe, video {
+img {
 	max-width: 90%;
 	max-height: 85vh;
 	/* Override width and height, which is set by lazy_srcset for images and manually for iframes and videos. 

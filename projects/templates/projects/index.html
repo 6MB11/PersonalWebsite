@@ -10,14 +10,6 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Marko Buha</title>
 	<link rel="stylesheet" href="{% static 'projects/critical.css' %}">
-	<link rel="preload" href="{% static 'projects/style.css' %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-	<noscript>
-		<link rel="stylesheet" href="{% static 'projects/style.css' %}">
-	</noscript>
-	<link rel="preload" href="{% static 'personal_site/normalize.css' %}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-	<noscript>
-		<link rel="stylesheet" href="{% static 'personal_site/normalize.css' %}">
-	</noscript>
 	<link rel="shortcut icon" type="image/webp" href="{% static 'personal_site/personal_site.webp' %}">
 </head>
 
@@ -48,9 +40,9 @@
 
 	{% for project in projects %}
 
-	<dialog class="background-overlay" id="background-overlay:{{project.slug}}" onclick="off(event)">
+	<dialog class="background-overlay" id="background-overlay:{{project.slug}}">
 		<article class="project-box-overlay">
-			<button class="exit-button" id="exit-button:{{project.slug}}" onclick="off(event)" aria-label="Close dialog.">&#x2716;</button>
+			<button class="exit-button" id="exit-button:{{project.slug}}" aria-label="Close dialog.">&#x2716;</button>
 			<header class="top-row">
 				<h2 class="project-title-overlay">{{project.title}}</h2>
 				<img class="project-image-overlay" {% srcset project.image %} alt="{{project.image_text}}">
@@ -106,11 +98,11 @@
 
 	</ul>
 
-	<dialog class="background-overlay" id="background-overlay:resume" onclick="off(event)">
+	<dialog class="background-overlay" id="background-overlay:resume">
 		<article class="project-box-overlay">
-			<button class="exit-button" id="exit-button:resume" onclick="off(event)" aria-label="Close dialog.">&#x2716;</button>
+			<button class="exit-button" id="exit-button:resume" aria-label="Close dialog.">&#x2716;</button>
 			<!--8.5x11. Lazy loading as element needs to be visible when loaded to not generate OffsetParent error-->
-			<iframe src="{% static 'pdfjs/web/viewer.html' %}?file={% static 'personal_site/resume.pdf' %}" width="850" style="aspect-ratio:8.5/11" title="Resume" loading="lazy"></iframe>
+			<iframe src="{% static 'pdfjs/web/viewer.html' %}?file={% static 'personal_site/resume.pdf' %}" title="Resume" loading="lazy"></iframe>
 		</article>
 	</dialog>
 
