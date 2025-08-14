@@ -6,8 +6,19 @@ function onPageLoad() {
   null != n && n.showModal()
 }
 
+function loadStyleSheet(src) {
+  if (document.createStyleSheet) document.createStyleSheet(src);
+  else {
+    var stylesheet = document.createElement('link');
+    stylesheet.href = '/static/' + src;
+    stylesheet.rel = 'stylesheet';
+    stylesheet.type = 'text/css';
+    document.getElementsByTagName('head')[0].appendChild(stylesheet);
+  }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
-  onPageLoad()
+  onPageLoad(), loadStyleSheet('projects/style.css'), loadStyleSheet('personal_site/normalize.css')
 });
 
 const resumeButton = elementFromId("footer-box-sub:resume");

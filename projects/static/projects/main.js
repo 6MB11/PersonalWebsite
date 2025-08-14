@@ -55,6 +55,16 @@ function onTab(e) {
   r.style.border = "solid"
 }
 
+const backgroundOverlay = document.querySelectorAll(".background-overlay");
+backgroundOverlay.forEach(e => {
+  e.addEventListener("click", () => {
+    let t = elementFromId("background-overlay:" + getSecondPart(e.id));
+    t.close()
+  }
+  )
+}
+);
+
 const exitButton = document.querySelectorAll(".exit-button");
 exitButton.forEach(e => {
   e.addEventListener("click", () => {

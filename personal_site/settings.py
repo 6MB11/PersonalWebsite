@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 # settings.py
 from pathlib import Path
 from django.core.management.utils import get_random_secret_key
+from csp.constants import NONCE, SELF
 import dj_database_url  # <-- Updated!
 import os
 import environ  # <-- Updated!
@@ -53,6 +54,7 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',  # <-- Updated!
     'django.contrib.staticfiles',
     'ckeditor',
+    "csp",
     "imagekit",
     "lazy_srcset",
     'projects.apps.ProjectsConfig',
@@ -67,6 +69,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "csp.middleware.CSPMiddleware",
 ]
 
 X_FRAME_OPTIONS = "SAMEORIGIN"
@@ -98,7 +101,7 @@ WSGI_APPLICATION = 'personal_site.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(conn_max_age=600, ssl_require=False)
+  'default': dj_database_url.config(conn_max_age=600, ssl_require=False)
 }
 
 
@@ -233,6 +236,17 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CONTENT_SECURITY_POLICY = {
+    "DIRECTIVES": {
+        "default-src": [SELF],
+        "frame-ancestors": [SELF],
+        "form-action": [SELF],
+    },
+}
+
+SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
 if DEBUG:
     import mimetypes

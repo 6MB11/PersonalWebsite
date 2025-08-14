@@ -40,3 +40,15 @@
 	margin-bottom: 10px;
 	cursor: pointer
 }
+
+iframe {
+	max-width: 90%;
+	max-height: 85vh;
+	aspect-ratio: 8.5/11
+}
+
+video {
+	max-width: 90%;
+	max-height: 85vh;
+	aspect-ratio: 16/9
+}
