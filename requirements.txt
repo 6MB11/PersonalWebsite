@@ -10,7 +10,7 @@ django-lazy-srcset==1.0.5
 gunicorn==23.0.0
 packaging==25.0
 pilkit==3.0
-pillow==11.3.0
+pillow==11.2.1
 psycopg2==2.9.10
 setuptools==80.9.0
 sqlparse==0.5.0
