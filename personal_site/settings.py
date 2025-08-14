@@ -38,7 +38,7 @@ SECRET_KEY = env.str('SECRET_KEY', default=get_random_secret_key())  # <-- Updat
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')  # <-- Updated!
 
-ALLOWED_HOSTS = ['localhost', '0.0.0.0', '127.0.0.1', 'personal-site-mb.fly.dev', '.markobuha.ca']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'personal-site-mb.fly.dev', '.markobuha.ca']
 
 CSRF_TRUSTED_ORIGINS = ['https://personal-site-mb.fly.dev', 'https://*.markobuha.ca']  # <-- Updated!
 
