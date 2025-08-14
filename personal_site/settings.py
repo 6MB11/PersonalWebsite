@@ -45,10 +45,6 @@ CSRF_TRUSTED_ORIGINS = ['https://personal-site-mb.fly.dev', 'https://*.markobuha
 # Application definition
 
 INSTALLED_APPS = [
-    'ckeditor',
-    'csp',
-    'imagekit',
-    'lazy_srcset',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
