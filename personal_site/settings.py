@@ -45,6 +45,10 @@ CSRF_TRUSTED_ORIGINS = ['https://personal-site-mb.fly.dev', 'https://*.markobuha
 # Application definition
 
 INSTALLED_APPS = [
+    'ckeditor',
+    'csp',
+    'imagekit',
+    'lazy_srcset',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -52,10 +56,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',  # <-- Updated!
     'django.contrib.staticfiles',
-    'ckeditor',
-    "csp",
-    "imagekit",
-    "lazy_srcset",
     'projects.apps.ProjectsConfig',
 ]
 
@@ -128,7 +128,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-ca'
 
-TIME_ZONE = 'UTC' # Changing this may cause 500 error when deploying through GitHub Actions
+TIME_ZONE = 'America/Toronto'
 
 USE_I18N = True
 
