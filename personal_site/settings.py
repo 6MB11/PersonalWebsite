@@ -54,6 +54,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ckeditor',
     "csp",
+    "imagekit",
+    "lazy_srcset",
     'projects.apps.ProjectsConfig',
 ]
 
