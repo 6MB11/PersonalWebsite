@@ -100,8 +100,9 @@ WSGI_APPLICATION = 'personal_site.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# lazy_srcset uses DATABASE_URL so need different environment variable
 DATABASES = {
-  'default': dj_database_url.config(conn_max_age=600, ssl_require=False)
+  'default': dj_database_url.config(env='FLY_DATABASE_URL', conn_max_age=600, ssl_require=False)
 }
 
 
