@@ -10,13 +10,6 @@ projectButton.forEach(e => {
   )
 }
 );
-function off(e) {
-  if (e.target !== e.currentTarget)
-    return;
-  let t = elementFromId("background-overlay:" + getSecondPart(e.target.id));
-  t.close(),
-    document.body.style.overflow = "auto"
-}
 
 class Tab {
   constructor() {
@@ -58,8 +51,7 @@ function onTab(e) {
 const backgroundOverlay = document.querySelectorAll(".background-overlay");
 backgroundOverlay.forEach(e => {
   e.addEventListener("click", () => {
-    let t = elementFromId("background-overlay:" + getSecondPart(e.id));
-    t.close()
+    off(e)
   }
   )
 }
@@ -68,12 +60,19 @@ backgroundOverlay.forEach(e => {
 const exitButton = document.querySelectorAll(".exit-button");
 exitButton.forEach(e => {
   e.addEventListener("click", () => {
-    let t = elementFromId("background-overlay:" + getSecondPart(e.id));
-    t.close()
+    off(e)
   }
   )
 }
 );
+
+function off(e) {
+  if (e.target !== e.currentTarget)
+    return;
+  let t = elementFromId("background-overlay:" + getSecondPart(e.id));
+  t.close();
+  document.body.style.overflow = "auto";
+}
 
 const dialog = elementFromId("background-overlay:" + getSecondPart(resumeButton.id));
 

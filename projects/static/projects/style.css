@@ -21,6 +21,16 @@
 	width: 90%
 }
 
+.project-box-overlay {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	width: 100%;
+	border-radius: 5%/50%;
+	background-color: #f08080;
+	margin: auto
+}
+
 .project-box-overlay:focus-within, .project-box-overlay:hover {
 	transform: none;
 	transition: none
@@ -43,12 +53,12 @@
 
 iframe {
 	max-width: 90%;
-	max-height: 90vh;
+	max-height: 87.5vh;
 	aspect-ratio: 8.5/11
 }
 
 video {
 	max-width: 90%;
-	max-height: 90vh;
+	max-height: 87.5vh;
 	aspect-ratio: 16/9
 }

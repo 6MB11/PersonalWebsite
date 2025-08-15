@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 # settings.py
 from pathlib import Path
 from django.core.management.utils import get_random_secret_key
-from csp.constants import NONCE, SELF
+from csp.constants import SELF
 import dj_database_url  # <-- Updated!
 import os
 import environ  # <-- Updated!
@@ -98,7 +98,6 @@ WSGI_APPLICATION = 'personal_site.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# lazy_srcset uses DATABASE_URL so need different environment variable
 DATABASES = {
   'default': dj_database_url.config(env='FLY_DATABASE_URL', conn_max_age=600, ssl_require=False)
 }

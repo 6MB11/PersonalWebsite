@@ -20,7 +20,7 @@
 			<p>Software Engineering Master's student with an array of experiences in embedded software development</p>
 		</section>
 		<!--Set fetch prio on non-dialog content per Google Lighthouse testing-->
-		<img id="header-box-image" src="{% static 'personal_site/portrait.webp' %}" alt="Self-portrait" width="204" height="250" fetchpriority="high">
+		<img id="header-box-image" src="{% static 'personal_site/portrait.webp' %}" alt="Self-portrait" fetchpriority="high">
 	</header>
 
 	<!--Lists are used as screen readers will read out "1 of 12", "2 of 12", etc.-->
@@ -29,7 +29,7 @@
 		{% for project in projects %}
 		<li class="project-button" id="project-button:{{project.slug}}">
 			<h2 class="project-title" id="project-title:{{project.slug}}">{{project.title}}</h2>
-			<img class="project-image" id="project-image:{{project.slug}}" src="{{ project.image.url }}" alt="{{project.image_text}}" width="600" height="250" fetchpriority="high">
+			<img class="project-image" id="project-image:{{project.slug}}" src="{{ project.image.url }}" alt="{{project.image_text}}" fetchpriority="high">
 			<p class="project-summary" id="project-summary:{{project.slug}}">{{project.summary}}</p>
 			<button type="button" class="hidden-button"></button>
 		</li>
@@ -44,7 +44,7 @@
 			<button class="exit-button" id="exit-button:{{project.slug}}" aria-label="Close dialog.">&#x2716;</button>
 			<header class="top-row">
 				<h2 class="project-title-overlay">{{project.title}}</h2>
-				<img class="project-image-overlay" src="{{ project.image.url }}" alt="{{project.image_text}}" width="600" height="250">
+				<img class="project-image-overlay" src="{{ project.image.url }}" alt="{{project.image_text}}">
 			</header>
 
 			<!--Sections should have headers, this doesn't-->
@@ -84,14 +84,14 @@
 		{% for external_site in external_sites %}
 		<!--image_text is e.g. "email", "LinkedIn", etc.-->
 		<li class="footer-box-sub" id="footer-box-sub:{{external_site.image_text}}" href="{{ external_site.url }}">
-			<img class="footer-box-sub-image" src="{{ external_site.image.url }}" alt="{{ external_site.image_text }}" fetchpriority="high" width="40" height="40">
+			<img class="footer-box-sub-image" src="{{ external_site.image.url }}" alt="{{ external_site.image_text }}" fetchpriority="high">
 		</li>
 		{% endfor %}
 
 		<!--resume-->
 		<li class="footer-box-sub" id="footer-box-sub:resume">
 			<!--64 x 64 gets a Lighthouse warning expecting a bigger size-->
-			<img class="footer-box-sub-image" src="{% static 'personal_site/resume.webp' %}" alt="Resume." fetchpriority="high" width="40" height="40">
+			<img class="footer-box-sub-image" src="{% static 'personal_site/resume.webp' %}" alt="Resume." fetchpriority="high">
 			<button type="button" class="hidden-button"></button>
 		</li>
 
