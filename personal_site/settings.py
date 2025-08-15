@@ -258,7 +258,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CONTENT_SECURITY_POLICY = {
-    "EXCLUDE_URL_PREFIXES": ["/admin"],
+    "EXCLUDE_URL_PREFIXES": ["/admin"], # ckeditor
     "DIRECTIVES": {
         "default-src": [SELF],
         "frame-ancestors": [SELF],
