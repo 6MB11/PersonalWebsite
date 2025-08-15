@@ -1,5 +1,6 @@
 <!doctype html>
 {% load static %}
+{% load lazy_srcset %}
 <html lang="en-ca">
 
 <head>
@@ -20,16 +21,16 @@
 			<p>Software Engineering Master's student with an array of experiences in embedded software development</p>
 		</section>
 		<!--Set fetch prio on non-dialog content per Google Lighthouse testing-->
-		<img id="header-box-image" src="{% static 'personal_site/portrait.webp' %}" alt="Self-portrait" fetchpriority="high">
+		<img id="header-box-image" {% srcset 'personal_site/portrait.webp' %} alt="Self-portrait" fetchpriority="high">
 	</header>
 
 	<!--Lists are used as screen readers will read out "1 of 12", "2 of 12", etc.-->
-	<ul class="projects-tabs">
+	<ul class="projects-tabs" role="main">
 
 		{% for project in projects %}
 		<li class="project-button" id="project-button:{{project.slug}}">
 			<h2 class="project-title" id="project-title:{{project.slug}}">{{project.title}}</h2>
-			<img class="project-image" id="project-image:{{project.slug}}" src="{{ project.image.url }}" alt="{{project.image_text}}" fetchpriority="high">
+			<img class="project-image" id="project-image:{{project.slug}}" {% srcset project.image %} alt="{{project.image_text}}" fetchpriority="high">
 			<p class="project-summary" id="project-summary:{{project.slug}}">{{project.summary}}</p>
 			<button type="button" class="hidden-button"></button>
 		</li>
@@ -44,9 +45,10 @@
 			<button class="exit-button" id="exit-button:{{project.slug}}" aria-label="Close dialog.">&#x2716;</button>
 			<header class="top-row">
 				<h2 class="project-title-overlay">{{project.title}}</h2>
-				<img class="project-image-overlay" src="{{ project.image.url }}" alt="{{project.image_text}}">
+				<img class="project-image" {% srcset project.image %} alt="{{project.image_text}}">
 			</header>
 
+			{% if project.tab_set.all %}
 			<!--Sections should have headers, this doesn't-->
 			<div class="projects-tabs" role="tablist">
 
@@ -66,9 +68,10 @@
 				{{tab.text|safe}}
 			</aside>
 			{% endfor %}
+			{% endif %}
 
+			{% if not project.tab_set.all %}
 			<!--Using project-text for when there are no tabs-->
-			{% if project.tab_set.all == null %}
 			<div class="project-text">
 				{{project.text|safe}}
 			</div>
@@ -84,14 +87,13 @@
 		{% for external_site in external_sites %}
 		<!--image_text is e.g. "email", "LinkedIn", etc.-->
 		<li class="footer-box-sub" id="footer-box-sub:{{external_site.image_text}}" href="{{ external_site.url }}">
-			<img class="footer-box-sub-image" src="{{ external_site.image.url }}" alt="{{ external_site.image_text }}" fetchpriority="high">
+			<img class="footer-box-sub-image" {% srcset external_site.image %} alt="{{ external_site.image_text }}" fetchpriority="high">
 		</li>
 		{% endfor %}
 
 		<!--resume-->
 		<li class="footer-box-sub" id="footer-box-sub:resume">
-			<!--64 x 64 gets a Lighthouse warning expecting a bigger size-->
-			<img class="footer-box-sub-image" src="{% static 'personal_site/resume.webp' %}" alt="Resume." fetchpriority="high">
+			<img class="footer-box-sub-image" {% srcset 'personal_site/resume.webp' %} alt="Resume." fetchpriority="high">
 			<button type="button" class="hidden-button"></button>
 		</li>
 

@@ -8,10 +8,6 @@
 	transition: transform .4s
 }
 
-.project-image-overlay {
-	max-height: 250px
-}
-
 .project-text {
 	width: 90%
 }
