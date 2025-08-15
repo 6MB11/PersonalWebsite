@@ -54,9 +54,7 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',  # <-- Updated!
     'django.contrib.staticfiles',
     'ckeditor',
-    "csp",
-    "imagekit",
-    "lazy_srcset",
+    'csp',
     'projects.apps.ProjectsConfig',
 ]
 
@@ -220,13 +218,6 @@ CKEDITOR_CONFIGS = {
     }
 }
 
-LAZY_SRCSET = {
-    "default": {
-        # breakpoints is the only setting you must define
-        "breakpoints": [1920, 1750, 1580, 1430, 1280, 1156, 1024, 832, 640, 448, 256]
-    }
-}
-
 # Directory where static and media files are collected
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -239,6 +230,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CONTENT_SECURITY_POLICY = {
+    "EXCLUDE_URL_PREFIXES": ["/admin"], # ckeditor
     "DIRECTIVES": {
         "default-src": [SELF],
         "frame-ancestors": [SELF],
