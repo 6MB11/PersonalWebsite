@@ -57,7 +57,6 @@
 }
 
 .project-image {
-	width: 90%;
 	max-width: 600px;
 	max-height: 250px
 }
@@ -65,10 +64,10 @@
 .background-overlay {
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0,0,0,.5);
-	overflow-y: auto;
 	max-width: 100%;
 	max-height: 100%;
+	background-color: rgba(0,0,0,.5);
+	overflow-y: auto;
 	border: none
 }
 
@@ -76,7 +75,7 @@
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
-	width: 90%;
+	width: 100%;
 	border-radius: 5%/50%;
 	background-color: #f08080;
 	margin: auto
@@ -114,10 +113,7 @@ button {
 }
 
 img {
-	max-width: 90%;
-	max-height: 85vh;
-	/* Override width and height, which is set by lazy_srcset for images and manually for iframes and videos. 
-		 This lets image fit on screen .
+	/* Override width and height. This lets image fit on screen.
 		 https://stackoverflow.com/a/17183996 */
 	width: auto;
 	height: auto;
@@ -126,5 +122,5 @@ img {
 html {
 	background-image: linear-gradient(transparent 0,rgba(240,128,128,.5) 100%);
 	color-scheme: light;
-	min-height: 100vh;
+	min-height: 100vh
 }

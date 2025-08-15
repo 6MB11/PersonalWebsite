@@ -43,12 +43,12 @@
 
 iframe {
 	max-width: 90%;
-	max-height: 85vh;
+	max-height: 90vh;
 	aspect-ratio: 8.5/11
 }
 
 video {
 	max-width: 90%;
-	max-height: 85vh;
+	max-height: 90vh;
 	aspect-ratio: 16/9
 }
