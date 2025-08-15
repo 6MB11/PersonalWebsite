@@ -57,8 +57,8 @@
 }
 
 .project-image {
-	max-width: 600px;
-	max-height: 250px
+	max-width: min(600px, 90%);
+	max-height: min(250px, 90vh)
 }
 
 .background-overlay {
@@ -69,16 +69,6 @@
 	background-color: rgba(0,0,0,.5);
 	overflow-y: auto;
 	border: none
-}
-
-.project-box-overlay {
-	display: flex;
-	justify-content: center;
-	flex-wrap: wrap;
-	width: 100%;
-	border-radius: 5%/50%;
-	background-color: #f08080;
-	margin: auto
 }
 
 #footer-box {
@@ -113,10 +103,12 @@ button {
 }
 
 img {
-	/* Override width and height. This lets image fit on screen.
-		 https://stackoverflow.com/a/17183996 */
-	width: auto;
-	height: auto;
+	max-width: 90%;
+	max-height: 87.5vh
+}
+
+body {
+	width: calc(100vw - 15px)
 }
 
 html {
