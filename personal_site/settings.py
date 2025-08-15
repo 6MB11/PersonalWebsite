@@ -55,6 +55,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ckeditor',
     'csp',
+    'imagekit',
+    'lazy_srcset',
     'projects.apps.ProjectsConfig',
 ]
 
@@ -217,6 +219,33 @@ CKEDITOR_CONFIGS = {
     }
 }
 
+LAZY_SRCSET_ENABLED = True
+
+# The default threshold to use when not specified in the config.
+LAZY_SRCSET_THRESHOLD = 69
+
+# The default generator to use when not specified in the config.
+LAZY_SRCSET_GENERATOR_ID = "lazy_srcset:srcset_image"
+
+LAZY_SRCSET = {
+    "default": {
+        # breakpoints is the only setting you must define
+        "breakpoints": [1920, 1750, 1580, 1430, 1280, 1156, 1024, 832, 640, 448, 256],
+        # If max_width is not provided the source image width is used.
+        # It's a good idea to set this.
+        "max_width": 2560,
+        # If quality is not provided PIL will choose a default
+        "quality": 91,
+        # If format is not provided the source image format is used
+        "format": "WEBP",
+        # The difference in width (px) required to generate a new image
+        # This prevents images being created which are too similar in size
+        "threshold": LAZY_SRCSET_THRESHOLD,
+        # If generator_id is not provided LAZY_SRCSET_GENERATOR_ID is used
+        "generator_id": LAZY_SRCSET_GENERATOR_ID,
+    }
+}
+
 # Directory where static and media files are collected
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -229,7 +258,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CONTENT_SECURITY_POLICY = {
-    "EXCLUDE_URL_PREFIXES": ["/admin"], # ckeditor
+    "EXCLUDE_URL_PREFIXES": ["/admin"],
     "DIRECTIVES": {
         "default-src": [SELF],
         "frame-ancestors": [SELF],

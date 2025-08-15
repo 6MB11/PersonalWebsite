@@ -1,14 +1,10 @@
-# See https://fly.io/docs/app-guides/continuous-deployment-with-github-actions/
-
 name: Fly & Lighthouse CI
 
 on:
-  push:
-    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
-jobs:
+jobs: # See https://fly.io/docs/app-guides/continuous-deployment-with-github-actions/
   deploy:
   
     name: Fly deploy app

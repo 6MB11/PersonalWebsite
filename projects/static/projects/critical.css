@@ -27,7 +27,11 @@
 
 #header-box-image {
 	align-items: center;
-	max-height: 250px;
+}
+
+#header-box-image, .project-image {
+	max-width: min(600px, 90%);
+	max-height: min(250px, 87.5vh)
 }
 
 .projects-tabs {
@@ -54,11 +58,6 @@
 .project-summary, .project-title {
 	width: 90%;
 	text-align: center
-}
-
-.project-image {
-	max-width: min(600px, 90%);
-	max-height: min(250px, 90vh)
 }
 
 .background-overlay {
@@ -102,9 +101,12 @@ button {
 	display: none
 }
 
+/* https://stackoverflow.com/questions/12991351/how-to-force-image-resize-and-keep-aspect-ratio */
 img {
 	max-width: 90%;
-	max-height: 87.5vh
+	max-height: 87.5vh;
+	width: auto;
+	height: auto
 }
 
 body {
