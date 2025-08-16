@@ -110,7 +110,7 @@ img {
 }
 
 body {
-	width: calc(100vw - 15px)
+	scrollbar-gutter: stable
 }
 
 html {
