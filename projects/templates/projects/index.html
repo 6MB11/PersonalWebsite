@@ -25,7 +25,7 @@
 	</header>
 
 	<!--Lists are used as screen readers will read out "1 of 12", "2 of 12", etc.-->
-	<ul class="projects-tabs" role="main">
+	<ul class="projects-tabs">
 
 		{% for project in projects %}
 		<li class="project-button" id="project-button:{{project.slug}}">
@@ -111,5 +111,4 @@
 	<script defer src="{% static 'projects/main.js' %}"></script>
 
 </body>
-
 </html>
