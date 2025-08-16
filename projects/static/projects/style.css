@@ -47,9 +47,14 @@
 	cursor: pointer
 }
 
-iframe, video {
+iframe {
 	max-width: 90%;
 	max-height: 87.5vh;
-	width: auto;
-	height: auto;
+	aspect-ratio: 8.5/12
+}
+
+video {
+	max-width: 90%;
+	max-height: 87.5vh;
+	aspect-ratio: 16/9
 }
