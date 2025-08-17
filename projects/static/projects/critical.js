@@ -3,7 +3,10 @@ function onPageLoad() {
     , t = e.split("/")
     , o = t[1]
     , n = elementFromId("background-overlay:" + o);
-  null != n && n.showModal()
+  if (null != n) {
+    n.showModal();
+    document.body.style.overflow = "hidden";
+  }
 }
 
 function loadStyleSheet(src) {

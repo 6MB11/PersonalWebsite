@@ -9,7 +9,7 @@
 
 #header-box, .project-box-overlay {
 	padding-top: 10px;
-	padding-bottom: 10px
+	padding-bottom: 20px
 }
 
 .exit-button, h1, h2, h3, h4, p, ul {
@@ -75,8 +75,8 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	padding-top: 50px;
-	padding-left: 20%;
-	padding-right: 20%;
+	padding-left: 0;
+	margin: auto;
 	gap: 10px;
 	list-style-type: none
 }
