@@ -48,19 +48,17 @@ function onTab(e) {
   r.style.border = "solid"
 }
 
-const backgroundOverlay = document.querySelectorAll(".background-overlay");
-backgroundOverlay.forEach(e => {
-  e.addEventListener("click", () => {
-    off(e)
-  }
-  )
-}
-);
+var backgroundOverlay = document.querySelectorAll(".background-overlay");
+var exitButton = document.querySelectorAll(".exit-button");
 
-const exitButton = document.querySelectorAll(".exit-button");
-exitButton.forEach(e => {
-  e.addEventListener("click", () => {
-    off(e)
+backgroundOverlay = Array.from(backgroundOverlay);
+exitButton = Array.from(exitButton);
+
+const overlaysButtons = backgroundOverlay.concat(exitButton);
+
+overlaysButtons.forEach(e => {
+  e.addEventListener("click", (event) => {
+    off(event)
   }
   )
 }
@@ -69,7 +67,7 @@ exitButton.forEach(e => {
 function off(e) {
   if (e.target !== e.currentTarget)
     return;
-  let t = elementFromId("background-overlay:" + getSecondPart(e.id));
+  let t = elementFromId("background-overlay:" + getSecondPart(e.target.id));
   t.close();
   document.body.style.overflow = "auto";
 }
