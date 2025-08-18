@@ -89,4 +89,10 @@ e.addEventListener("touchmove", (event) => {
   }
 }, { passive: false });
 }
-)
+Array.from(embeds).forEach(e => {
+  e.addEventListener("touchmove", (event) => {
+    if (event.touches.length > 1) { // Check for multi-touch (pinch)
+      event.preventDefault(); // Prevent default browser zoom
+    }
+  }, { passive: false });
+});
