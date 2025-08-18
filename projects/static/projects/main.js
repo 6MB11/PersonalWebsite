@@ -80,9 +80,9 @@ resumeButton.addEventListener("click", () => {
 }
 );
 
-const embeds = document.getElementsByTagName("embed");
+const iframes = document.getElementsByTagName("iframe");
 
-Array.from(embeds).forEach(e => {
+Array.from(iframes).forEach(e => {
   e.addEventListener("touchmove", (event) => {
     if (event.touches.length > 1) { // Check for multi-touch (pinch)
       event.preventDefault(); // Prevent default browser zoom
