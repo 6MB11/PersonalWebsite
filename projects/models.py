@@ -7,9 +7,9 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 class Project(models.Model):
     title = models.CharField(max_length=50)
-    summary = models.CharField(max_length=250)
     image = models.ImageField(upload_to="cover_images")
     image_text = models.TextField()
+    summary = models.CharField(max_length=250)
     text = RichTextUploadingField()
     slug = models.SlugField(null=True, unique=True, blank=True)
     order = models.SmallIntegerField(default=0)
