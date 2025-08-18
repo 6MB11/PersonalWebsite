@@ -80,8 +80,13 @@ resumeButton.addEventListener("click", () => {
 }
 );
 
-document.addEventListener("touchmove", (e) => {
-  if (e.touches.length > 1) { // Check for multi-touch (pinch)
-    e.preventDefault(); // Prevent default browser zoom
+const embeds = document.getElementsByTagName("embed");
+
+embeds.forEach(e => {
+e.addEventListener("touchmove", (event) => {
+  if (event.touches.length > 1) { // Check for multi-touch (pinch)
+    event.preventDefault(); // Prevent default browser zoom
   }
 }, { passive: false });
+}
+)
