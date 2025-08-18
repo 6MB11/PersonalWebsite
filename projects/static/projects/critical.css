@@ -30,13 +30,13 @@
 }
 
 #header-box-image, .project-image {
-	max-width: min(600px, 90%);
-	max-height: min(250px, 87.5vh)
+	max-width: min(600px, 95%);
+	max-height: min(250px, 95vh)
 }
 
 .projects-tabs {
 	flex-wrap: wrap;
-	width: 95%;
+	width: 100%;
 	margin: auto;
 	padding-left: 0;
 	gap: 2vw
@@ -104,8 +104,8 @@ button {
 
 /* https://stackoverflow.com/questions/12991351/how-to-force-image-resize-and-keep-aspect-ratio */
 img {
-	max-width: 90%;
-	max-height: 90vh;
+	max-width: 100%;
+	max-height: 100vh;
 	width: auto;
 	height: auto
 }
