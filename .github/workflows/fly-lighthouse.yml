@@ -7,6 +7,7 @@ on:
 jobs:
   # See https://fly.io/docs/app-guides/continuous-deployment-with-github-actions/
   deploy:
+    concurrency: production_deployment_group # prevent multiple instances from running at same time
   
     name: Fly deploy app
     runs-on: ubuntu-latest
