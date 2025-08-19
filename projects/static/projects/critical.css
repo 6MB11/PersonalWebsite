@@ -111,7 +111,7 @@ img {
 }
 
 body {
-	scrollbar-gutter: stable
+	padding-left: calc(100vw - 100%)
 }
 
 html {
