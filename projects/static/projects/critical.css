@@ -8,8 +8,8 @@
 }
 
 #header-box, .project-box-overlay {
-	padding-top: 10px;
-	padding-bottom: 20px
+	padding-top: 0.5em;
+	padding-bottom: 1.5em
 }
 
 .exit-button, h1, h2, h3, h4, p, ul {
@@ -18,11 +18,11 @@
 
 #header-box {
 	flex-wrap: wrap;
-	gap: 50px
+	gap: 2em 3em
 }
 
 #header-box-text {
-	flex-basis: 320px
+	flex-basis: 20em
 }
 
 #header-box-image {
@@ -30,8 +30,8 @@
 }
 
 #header-box-image, .project-image {
-	max-width: min(600px, 95%);
-	max-height: min(250px, 95vh)
+	max-width: min(40em, 95%);
+	max-height: min(15em, 95vh)
 }
 
 .projects-tabs {
@@ -39,20 +39,19 @@
 	width: 95%;
 	margin: auto;
 	padding-left: 0;
-	gap: 50px 2vw
+	gap: 2em 3em
 }
 
 .project-button, .tab-button {
 	display: flex;
 	justify-content: center;
 	width: 100%;
-	max-width: 600px;
+	max-width: 40em;
 	border-radius: 5%/50%
 }
 
 .project-button {
 	flex-wrap: wrap;
-	padding-bottom: 20px;
 	background-color: #f08080
 }
 
@@ -75,22 +74,22 @@
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
-	padding-top: 50px;
-	padding-bottom: 50px;
+	padding-top: 3em;
+	padding-bottom: 3em;
 	padding-left: 0;
 	margin: auto;
-	gap: 10px;
+	gap: 0.5em;
 	list-style-type: none
 }
 
 .footer-box-sub {
-	padding: 10px;
+	padding: 0.5em;
 	border-radius: 50%;
 	background-color: #f08080
 }
 
 .footer-box-sub-image {
-	max-width: 40px
+	max-width: 2.5em
 }
 
 button {
