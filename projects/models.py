@@ -1,4 +1,6 @@
+from urllib.parse import scheme_chars
 from django.db import models
+from django.core.validators import URLValidator
 from django.utils.text import slugify
 from ckeditor_uploader.fields import RichTextUploadingField
 
@@ -42,7 +44,8 @@ class Tab(models.Model):
 class ExternalSite(models.Model):
     image = models.ImageField(upload_to="external_sites")
     image_text = models.TextField()
-    url = models.URLField()
+    # URLField is not used here as mailto links won't validate
+    url = models.CharField(max_length=250)
     order = models.SmallIntegerField(default=0)
 
     def __str__(self):
