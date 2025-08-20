@@ -90,8 +90,10 @@
 
 		{% for external_site in external_sites %}
 		<!--image_text is e.g. "email", "LinkedIn", etc.-->
-		<li class="footer-box-sub" id="footer-box-sub:{{external_site.image_text}}" href="{{ external_site.url }}">
-			<img class="footer-box-sub-image" {% srcset external_site.image %} alt="{{ external_site.image_text }}" fetchpriority="high">
+		<li>
+			<a class="footer-box-sub" href="{{ external_site.url }}">
+				<img class="footer-box-sub-image" {% srcset external_site.image %} alt="{{ external_site.image_text }}" fetchpriority="high">
+			</a>
 		</li>
 		{% endfor %}
 
