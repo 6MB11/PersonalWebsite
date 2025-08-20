@@ -20,6 +20,7 @@ jobs:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 
   lighthouse:
+    concurrency: production_deployment_group # prevent multiple instances from running at same time
   
     name: Lighthouse test app
     runs-on: ubuntu-latest
