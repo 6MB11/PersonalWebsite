@@ -30,12 +30,13 @@ class Tab(models.Model):
         Project, on_delete=models.CASCADE)
     title = models.CharField(max_length=50)
     text = RichTextUploadingField()
+    order = models.SmallIntegerField(default=0)
 
     def __str__(self):
         return str(self.owner) + ": " + self.title
 
     class Meta:
-        ordering = ['owner', 'title']
+        ordering = ['order']
 
 
 class ExternalSite(models.Model):
