@@ -47,6 +47,25 @@
 
 	</ul>
 
+	<ul id="footer-box">
+
+		{% for external_site in external_sites %}
+		<!--image_text is e.g. "email", "LinkedIn", etc.-->
+		<li>
+			<a class="footer-box-sub" href="{{ external_site.url }}">
+				<img class="footer-box-sub-image" {% srcset external_site.image %} alt="{{ external_site.image_text }}" fetchpriority="high">
+			</a>
+		</li>
+		{% endfor %}
+
+		<!--resume-->
+		<li class="footer-box-sub" id="footer-box-sub:resume">
+			<img class="footer-box-sub-image" {% srcset 'personal_site/resume.webp' %} alt="Resume." fetchpriority="high">
+			<button type="button" class="hidden-button"></button>
+		</li>
+
+	</ul>
+
 	{% for project in projects %}
 
 	<dialog class="background-overlay" id="background-overlay:{{project.slug}}">
@@ -90,25 +109,6 @@
 	</dialog>
 
 	{% endfor %}
-
-	<ul id="footer-box">
-
-		{% for external_site in external_sites %}
-		<!--image_text is e.g. "email", "LinkedIn", etc.-->
-		<li>
-			<a class="footer-box-sub" href="{{ external_site.url }}">
-				<img class="footer-box-sub-image" {% srcset external_site.image %} alt="{{ external_site.image_text }}" fetchpriority="high">
-			</a>
-		</li>
-		{% endfor %}
-
-		<!--resume-->
-		<li class="footer-box-sub" id="footer-box-sub:resume">
-			<img class="footer-box-sub-image" {% srcset 'personal_site/resume.webp' %} alt="Resume." fetchpriority="high">
-			<button type="button" class="hidden-button"></button>
-		</li>
-
-	</ul>
 
 	<dialog class="background-overlay" id="background-overlay:resume">
 		<article class="project-box-overlay">
