@@ -33,7 +33,7 @@ jobs:
         uses: foo-software/lighthouse-check-action@master
         with:
           outputDirectory: ${{ github.workspace }}/tmp/artifacts
-          urls: 'https://personal-site-mb.fly.dev'
+          urls: 'https://www.markobuha.ca'
       - name: Upload artifacts
         uses: actions/upload-artifact@master
         with:
