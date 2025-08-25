@@ -30,7 +30,7 @@
 			<p>Software Engineering Master's student with an array of experiences in embedded software development</p>
 		</section>
 		<!--Set fetch prio on non-dialog content per Google Lighthouse testing-->
-		<img id="header-box-image" {% srcset 'personal_site/portrait.webp' %} alt="Self-portrait" fetchpriority="high">
+		<img fetchpriority="high" id="header-box-image" {% srcset 'personal_site/portrait.webp' %} alt="Self-portrait">
 	</header>
 
 	<!--Lists are used as screen readers will read out "1 of 12", "2 of 12", etc.-->
@@ -39,7 +39,7 @@
 		{% for project in projects %}
 		<li class="project-button" id="project-button:{{project.slug}}">
 			<h2 class="project-title" id="project-title:{{project.slug}}">{{project.title}}</h2>
-			<img class="project-image" id="project-image:{{project.slug}}" {% srcset project.image %} alt="{{project.image_text}}" fetchpriority="high">
+			<img fetchpriority="high" class="project-image" id="project-image:{{project.slug}}" {% srcset project.image %} alt="{{project.image_text}}">
 			<p class="project-summary" id="project-summary:{{project.slug}}">{{project.summary}}</p>
 			<button type="button" class="hidden-button"></button>
 		</li>
@@ -53,14 +53,14 @@
 		<!--image_text is e.g. "email", "LinkedIn", etc.-->
 		<li>
 			<a class="footer-box-sub" href="{{ external_site.url }}">
-				<img class="footer-box-sub-image" {% srcset external_site.image %} alt="{{ external_site.image_text }}" fetchpriority="high">
+				<img fetchpriority="high" class="footer-box-sub-image" {% srcset external_site.image %} alt="{{ external_site.image_text }}">
 			</a>
 		</li>
 		{% endfor %}
 
 		<!--resume-->
 		<li class="footer-box-sub" id="footer-box-sub:resume">
-			<img class="footer-box-sub-image" {% srcset 'personal_site/resume.webp' %} alt="Resume." fetchpriority="high">
+			<img fetchpriority="high" class="footer-box-sub-image" {% srcset 'personal_site/resume.webp' %} alt="Resume.">
 			<button type="button" class="hidden-button"></button>
 		</li>
 
@@ -73,7 +73,7 @@
 			<button class="exit-button" id="exit-button:{{project.slug}}" aria-label="Close dialog.">&#x2716;</button>
 			<header class="top-row">
 				<h2 class="project-title-overlay">{{project.title}}</h2>
-				<img class="project-image" {% srcset project.image %} alt="{{project.image_text}}">
+				<img loading="lazy" class="project-image" {% srcset project.image %} alt="{{project.image_text}}">
 			</header>
 
 			{% if project.tab_set.all %}
