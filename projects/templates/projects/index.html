@@ -114,7 +114,10 @@
 		<article class="project-box-overlay">
 			<button class="exit-button" id="exit-button:resume" aria-label="Close dialog.">&#x2716;</button>
 			<!--Lazy loading as element needs to be visible when loaded to not generate OffsetParent error-->
-			<iframe src="{% static 'pdfjs/web/viewer.html' %}?file={% static 'personal_site/resume.pdf' %}" loading="lazy"></iframe>
+			<!--Project text div so parent element is properly set for percentage based width-->
+			<div class="project-text">
+				<iframe src="{% static 'pdfjs/web/viewer.html' %}?file={% static 'personal_site/resume.pdf' %}" loading="lazy"></iframe>
+			</div>
 		</article>
 	</dialog>
 
