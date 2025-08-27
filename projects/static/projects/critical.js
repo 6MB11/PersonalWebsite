@@ -21,7 +21,7 @@ function loadStyleSheet(src) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  onPageLoad(), loadStyleSheet('projects/style.css'), loadStyleSheet('personal_site/normalize.css')
+  onPageLoad(), loadStyleSheet('projects/style.css')
 });
 
 const resumeButton = elementFromId("footer-box-sub:resume");
