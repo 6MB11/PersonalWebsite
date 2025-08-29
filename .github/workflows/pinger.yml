@@ -4,7 +4,7 @@ on:
   schedule:
     # * is a special character in YAML so you have to quote this string.
     # /5 denotes that it will run once every 5 minutes
-    - cron:  '*/5 12-3 * * *'
+    - cron:  '*/5 0-3,12-23 * * *'
 
 jobs:
   pinger_job:
