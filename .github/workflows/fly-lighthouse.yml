@@ -2,30 +2,21 @@ name: Fly & Lighthouse CI
 concurrency: production_deployment_group # prevent multiple workflow instances from running at same time
 
 on:
-  pull_request:
-    branches: [ "main" ]
+  push:
+    branches: [ "patch" ]
 
 jobs:
-  # See https://fly.io/docs/app-guides/continuous-deployment-with-github-actions/
-  deploy:
-    name: Fly deploy app
-    runs-on: ubuntu-latest
-    
-    steps:
-      - uses: actions/checkout@v4
-      - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl deploy --remote-only
-        env:
-          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
 
   lighthouse:
     name: Lighthouse test app
     runs-on: ubuntu-latest
-    needs: deploy # This job will only run after 'deploy' completes successfully
 
     steps:
       - uses: actions/checkout@master
       - run: mkdir -p ${{ github.workspace }}/tmp/artifacts
+      - name: Sleep for 2 minutes
+        run: sleep 2m
+        shell: bash
       - name: Lighthouse
         uses: foo-software/lighthouse-check-action@master
         with:
