@@ -1,4 +1,4 @@
-name: Fly & Lighthouse CI
+name: Lighthouse CI
 concurrency: production_deployment_group # prevent multiple workflow instances from running at same time
 
 on:
