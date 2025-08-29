@@ -1,4 +1,4 @@
-name: Scheduled Ping
+name: Ping CI
 # This workflow is triggered at a scheduled interval of every 9 minutes between 07:00-20:59 EST and 08:00-21:59 EDT
 on:
   schedule:
@@ -7,12 +7,12 @@ on:
     - cron:  '*/9 0-2,12-23 * * *'
 
 jobs:
-  pinger_job:
-    name: A job to ping
+  ping:
+    name: Ping app
     runs-on: ubuntu-latest
     env:
       URL: https://markobuha.ca
       METHOD: GET  # the method used to make the request. It is GET by default
     steps:
-      - id: ping
+      - name: Ping
         uses: sisodiya2421/pinger@master
