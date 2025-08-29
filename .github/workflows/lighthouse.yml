@@ -2,8 +2,8 @@ name: Fly & Lighthouse CI
 concurrency: production_deployment_group # prevent multiple workflow instances from running at same time
 
 on:
-  push:
-    branches: [ "patch" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
 
