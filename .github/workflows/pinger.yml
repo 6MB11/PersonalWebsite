@@ -2,7 +2,6 @@ name: Ping CI
 # This workflow is triggered at scheduled intervals between 07:00-20:59 EST and 08:00-21:59 EDT
 on:
   schedule:
-    # * is a special character in YAML so you have to quote this string.
     - cron:  '8,17,26,35,44,53,59 0-2,12-23 * * *'
 
 jobs:
