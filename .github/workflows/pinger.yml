@@ -1,8 +1,8 @@
 name: Ping CI
-# This workflow is triggered at scheduled intervals between 07:00-20:59 EST and 08:00-21:59 EDT
+# This workflow is triggered at scheduled times between 07:00-20:59 EST and 08:00-21:59 EDT
 on:
   schedule:
-    - cron:  '3,9,15,21,27,33,39,45,51,57 0-2,12-23 * * *'
+    - cron:  '2,7,12,17,22,27,32,37,42,47,52,57 0-2,12-23 * * *'
 
 jobs:
   ping:
