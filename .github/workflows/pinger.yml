@@ -1,8 +1,10 @@
 name: Ping CI
-# This workflow is triggered at scheduled times between 07:00-20:59 EST and 08:00-21:59 EDT
+# This workflow is triggered every 6 minutes between 07:00-22:59 EST and 08:00-23:59 EDT
+# Every 5 minutes is max allowable frequency, so 6 provides a buffer for the Action to run
+# Avoid top of the hour as lots of Actions run then
 on:
   schedule:
-    - cron:  '2,7,12,17,22,27,32,37,42,47,52,57 0-2,12-23 * * *'
+    - cron:  '3,9,15,21,27,33,39,45,51,57 0-4,12-23 * * *'
 
 jobs:
   ping:
