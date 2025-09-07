@@ -1,0 +1,16 @@
+name: Ping CI
+# This workflow is triggered every 5 minutes. GitHub Actions is best effort so will not be every 5 minutes
+on:
+  schedule:
+    - cron:  '*/5 * * * *'
+
+jobs:
+  ping:
+    name: Ping app
+    runs-on: ubuntu-latest
+    env:
+      URL: https://markobuha.ca
+      METHOD: GET  # the method used to make the request. It is GET by default
+    steps:
+      - name: Ping
+        uses: sisodiya2421/pinger@master
