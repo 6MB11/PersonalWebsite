@@ -15,10 +15,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path, include
+# Replaces the standard django.urls.path, identical syntax
+from django_distill import distill_path
 from . import views
 
 urlpatterns = [
-    path('', views.home),
-    path('<slug:slug>', views.home),
+    distill_path('', views.home, name='home'),
+    distill_path('<slug:slug>', views.home, name='home'),
     path('ckeditor/', include('ckeditor_uploader.urls'))
 ]
