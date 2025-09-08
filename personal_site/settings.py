@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'csp',
     'imagekit',
     'lazy_srcset',
+    'django_distill',
     'projects.apps.ProjectsConfig',
 ]
 
