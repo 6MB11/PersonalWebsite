@@ -18,9 +18,21 @@ from django.urls import path, include
 # Replaces the standard django.urls.path, identical syntax
 from django_distill import distill_path
 from . import views
+from projects.models import Project
+
+# UNTESTED
+def get_all_projects():
+    # This function needs to return an iterable of dictionaries.
+    # Dictionaries are required as the URL this distill function is used by
+    # has named parameters. You can just export a small subset of values
+    # here if you wish to limit what pages will be generated.
+    for project in Project.objects.all():
+        # Note 'slug' matches the URL parameter names
+        yield {'slug': project.slug}
 
 urlpatterns = [
     distill_path('', views.home, name='home'),
-    distill_path('<slug:slug>', views.home, name='home'),
+    # UNTESTED
+    distill_path('<slug:slug>.html', views.home, name='home', distill_func=get_all_projects),
     path('ckeditor/', include('ckeditor_uploader.urls'))
 ]
