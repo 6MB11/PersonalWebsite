@@ -12,7 +12,7 @@ django-imagekit==5.0.0
 django-js-asset==2.1.0
 django-lazy-srcset==1.0.5
 gunicorn==23.0.0
-idna==3.10
+idna==3.15
 packaging==25.0
 pilkit==3.0
 pillow==12.2.0
